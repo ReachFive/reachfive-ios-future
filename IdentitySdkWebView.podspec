@@ -1,9 +1,9 @@
 Pod::Spec.new do |spec|
-  spec.name                  = "IdentitySdkCore"
+  spec.name                  = "IdentitySdkWebView"
   spec.version               = "4.0.0-beta.1"
-  spec.summary               = "ReachFive IdentitySdkCore"
+  spec.summary               = "ReachFive IdentitySdkWebView"
   spec.description           = <<-DESC
-      ReachFive Identity Sdk Core
+      ReachFive Identity Sdk WebView
   DESC
   spec.homepage              = "https://github.com/ReachFive/identity-ios-sdk"
   spec.license               = { :type => "MIT", :file => "LICENSE" }
@@ -11,11 +11,9 @@ Pod::Spec.new do |spec|
   spec.authors               = { "egor" => "egor@reach5.co" }
   spec.swift_versions        = ["5"]
   spec.source                = { :git => "https://github.com/ReachFive/identity-ios-sdk.git", :tag => "#{spec.version}" }
-  spec.source_files          = "IdentitySdkCore/IdentitySdkCore/Classes/**/*.*"
+  spec.source_files          = "IdentitySdkWebView/IdentitySdkWebView/Classes/**/*.*"
   spec.platform              = :ios
   spec.ios.deployment_target = '12.2'
 
-  spec.dependency 'Alamofire', '~> 4.8'
-  spec.dependency 'AlamofireObjectMapper', '~> 5.2'
-  spec.dependency 'AlamofireNetworkLogger'
+  spec.dependency 'IdentitySdkCore'
 end
