@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "Reach5",
+    platforms: [.iOS(.v13)],
     products: [
         .library(name: "Reach5", targets: ["Reach5"]),
     ],
@@ -23,6 +24,7 @@ let package = Package(
                 .product(name: "DeviceKit", package: "DeviceKit"),
                 .product(name: "BrightFutures", package: "BrightFutures"),
             ],
-            path: "IdentitySdkCore"),
+            resources: [.copy("Core/PrivacyInfo.xcprivacy")]
+        )
     ]
 )

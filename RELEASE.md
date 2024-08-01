@@ -9,7 +9,7 @@ $VERSION = 'x.x.x'
 ```swift
 let defaultParams: [String: String] = [
     "platform": "ios",
-    // TODO: read from the version.rb. Either directly or indirectly from IdentitySdkCore.h, Info.plist...
+    // TODO: read from the version.rb. Either directly or indirectly from Reach5.h, Info.plist...
     "sdk": "x.x.x",
     "device": deviceInfo,
 ]
@@ -36,4 +36,4 @@ git push origin x.x.x
 
 7. The CI will automatically publish this new version
 
-8. Finally, draft a new release in the [Github releases tab](https://github.com/ReachFive/identity-ios-sdk/releases) (copy & paste the changelog in the release's description).
+8. Finally, draft a new release in the [Github releases tab](https://github.com/ReachFive/reachfive-ios/releases) (copy & paste the changelog in the release's description).

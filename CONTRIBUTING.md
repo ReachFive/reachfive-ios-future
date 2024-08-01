@@ -76,6 +76,11 @@ swcutil developer-mode -e true
 
 # Development
 
+## Viewing the modules as libraries in XCode
+
+Open the project folder to view it as a package project, not the .xcodeproj or .xcworkspace which makes them seen as a Pod project
+
+
 ## Adding or renaming files
 While you can develop across all modules while being in the `Sandbox.xcworkspace`, 
 when you need to add a new file or rename one, you have to be in the specific module workspace and add it from within XCode so that the `project.pbxproj` is properly updated.
@@ -86,7 +91,7 @@ Instead they reference the latest version available on Cocoapods.<br>
 This means that the non-core pods will not have access to the core changes on CI until the core changes are deployed.<br>
 Local development is not impacted by this problem.
 
-So first release IdentitySdkCore, then you can use the new APIs from this release in the Facebook/Google/Webview/WeChat pods.
+So first release Reach5 Core, then you can use the new APIs from this release in the Facebook/Google/Webview/WeChat pods.
 
 ### When to add a new module for a provider
 

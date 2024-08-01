@@ -71,8 +71,8 @@ public class ReachFiveApi {
         let deviceInfo: String = [Device.current.safeDescription, Device.current.systemName, Device.current.systemVersion].compactMap { $0 }.joined(separator: " ")
         let defaultParams: [String: String] = [
             "platform": "ios",
-            // TODO: read from the version.rb. Either directly or indirectly from IdentitySdkCore.h, Info.plist...
-            "sdk": "6.4.0",
+            // TODO: read from the version.rb. Either directly or indirectly from Reach5.h, Info.plist...
+            "sdk": "7.0.0",
             "device": deviceInfo,
         ]
 
