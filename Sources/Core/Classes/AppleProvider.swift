@@ -1,5 +1,6 @@
-import Foundation
 import BrightFutures
+import Foundation
+import UIKit
 
 class ConfiguredAppleProvider: NSObject, Provider {
     public static let NAME = "apple"
