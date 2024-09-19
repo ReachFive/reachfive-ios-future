@@ -1,4 +1,8 @@
 # Changelog
+## Unreleased
+### New features
+- Support for native Sign in with Apple (that is, the system view will open, not a webview)
+
 ## v7.0.0
 ### Breaking changes
 - New name for the module: `Reach5`

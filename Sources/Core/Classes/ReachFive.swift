@@ -30,7 +30,7 @@ public class ReachFive: NSObject {
     public let storage: Storage
     let credentialManager: CredentialManager
     public let pkceKey = "PASSWORDLESS_PKCE"
-    
+
     public init(sdkConfig: SdkConfig, providersCreators: Array<ProviderCreator> = [], storage: Storage? = nil) {
         self.sdkConfig = sdkConfig
         self.providersCreators = providersCreators
@@ -38,7 +38,7 @@ public class ReachFive: NSObject {
         self.storage = storage ?? UserDefaultsStorage()
         self.credentialManager = CredentialManager(reachFiveApi: reachFiveApi)
     }
-    
+
     public override var description: String {
         """
         Config: domain=\(sdkConfig.domain), clientId=\(sdkConfig.clientId)
@@ -46,25 +46,25 @@ public class ReachFive: NSObject {
         Scope: \(scope.joined(separator: " "))
         """
     }
-        
+
     public func interceptUrl(_ url: URL) -> () {
         let receivedUrl = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        
+
         let recovery = URLComponents(string: sdkConfig.accountRecoveryUri)
         let mfa = URLComponents(string: sdkConfig.mfaUri)
         let passwordless = URLComponents(string: sdkConfig.redirectUri)
-        
+
         switch (receivedUrl?.host, receivedUrl?.path) {
-        
+
         case (recovery?.host, recovery?.path): interceptAccountRecovery(url)
         case (mfa?.host, mfa?.path): interceptVerifyMfaCredential(url)
         case (passwordless?.host, passwordless?.path): interceptPasswordless(url)
-            
+
             // fallback to old way of doing things if url components are not properly extracted
         case ("account-recovery", _): interceptAccountRecovery(url)
         case ("mfa", _): interceptVerifyMfaCredential(url)
         case ("callback", _): interceptPasswordless(url)
-        
+
         default: interceptPasswordless(url)
         }
     }
