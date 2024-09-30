@@ -8,7 +8,7 @@ AppDelegate.reachfive().login(
     <<withNonDiscoverableUserName>>,
     <<forRequest>>,
     <<usingModalAuthorizationForNonDiscoverable,usingModalAuthorizationFor>>,
-    <<display>>
+    <<displayForNonDiscoverable, display>>
 )
 ----
 
