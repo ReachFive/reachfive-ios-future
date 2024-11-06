@@ -1,10 +1,5 @@
-import BrightFutures
 import Foundation
-
-public enum LoginFlow {
-    case AchievedLogin(authToken: AuthToken)
-    case OngoingStepUp(token: String, availableMfaCredentialItemTypes: [MfaCredentialItemType])
-}
+import BrightFutures
 
 public extension ReachFive {
     func signup(profile: ProfileSignupRequest, redirectUrl: String? = nil, scope: [String]? = nil, origin: String? = nil) -> Future<AuthToken, ReachFiveError> {
@@ -17,9 +12,9 @@ public extension ReachFive {
         )
         return reachFiveApi
             .signupWithPassword(signupRequest: signupRequest)
-            .flatMap { AuthToken.fromOpenIdTokenResponseFuture($0) }
+            .flatMap({ AuthToken.fromOpenIdTokenResponseFuture($0) })
     }
-
+    
     func loginWithPassword(
         email: String? = nil,
         phoneNumber: String? = nil,
@@ -27,8 +22,7 @@ public extension ReachFive {
         password: String,
         scope: [String]? = nil,
         origin: String? = nil
-    ) -> Future<LoginFlow, ReachFiveError> {
-        let strScope = (scope ?? self.scope).joined(separator: " ")
+    ) -> Future<AuthToken, ReachFiveError> {
         let loginRequest = LoginRequest(
             email: email,
             phoneNumber: phoneNumber,
@@ -36,25 +30,11 @@ public extension ReachFive {
             password: password,
             grantType: "password",
             clientId: sdkConfig.clientId,
-            scope: strScope,
+            scope: (scope ?? self.scope).joined(separator: " "),
             origin: origin
         )
         return reachFiveApi
             .loginWithPassword(loginRequest: loginRequest)
-            .flatMap { resp in
-                if resp.mfaRequired == true {
-                    let pkce = Pkce.generate()
-                    self.storage.save(key: self.pkceKey, value: pkce)
-                    return self.reachFiveApi.startMfaStepUp(StartMfaStepUpRequest(clientId: self.sdkConfig.clientId, redirectUri: self.sdkConfig.redirectUri, pkce: pkce, scope: strScope, tkn: resp.tkn))
-                        .map { intiationStepUpResponse in
-                            LoginFlow.OngoingStepUp(token: intiationStepUpResponse.token, availableMfaCredentialItemTypes: intiationStepUpResponse.amr)
-                        }
-                } else {
-                    return self.loginCallback(tkn: resp.tkn, scopes: scope, origin: origin)
-                        .map { res in
-                            .AchievedLogin(authToken: res)
-                        }
-                }
-            }
+            .flatMap({ self.loginCallback(tkn: $0.tkn, scopes: scope, origin: origin) })
     }
 }

@@ -15,11 +15,7 @@ class ActionController: UITableViewController {
             if indexPath.row == 1 {
                 AppDelegate.reachfive()
                     .login(withRequest: NativeLoginRequest(anchor: window, origin: "ActionController: Section Native"), usingModalAuthorizationFor: [.SignInWithApple], display: .Always)
-                    .onSuccess(callback: handleLoginFlow)
-                    .onFailure { error in
-                        let alert = AppDelegate.createAlert(title: "Login failed", message: "Error: \(error.message())")
-                        self.present(alert, animated: true)
-                   }
+                    .onComplete { self.handleResult(result: $0) }
             }
         }
 
@@ -31,13 +27,13 @@ class ActionController: UITableViewController {
             if indexPath.row == 1 {
                 AppDelegate.reachfive()
                     .login(withRequest: loginRequest, usingModalAuthorizationFor: [.Passkey], display: .Always)
-                    .onSuccess(callback: handleLoginFlow)
+                    .onSuccess(callback: goToProfile)
             } else
             // Login with passkey: modal non-persistent
             if indexPath.row == 2 {
                 AppDelegate.reachfive()
                     .login(withRequest: loginRequest, usingModalAuthorizationFor: [.Passkey], display: .IfImmediatelyAvailableCredentials)
-                    .onSuccess(callback: handleLoginFlow)
+                    .onSuccess(callback: goToProfile)
             }
         }
 
