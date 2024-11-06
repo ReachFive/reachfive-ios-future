@@ -9,25 +9,6 @@ class LoginWithPasswordController: UIViewController {
     @IBOutlet weak var customIdentifierInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     @IBOutlet weak var error: UILabel!
-    var tokenNotification: NSObjectProtocol?
-
-        
-    override func viewDidLoad() {
-        print("LoginWithPasswordController.viewDidLoad")
-        super.viewDidLoad()
-        tokenNotification = NotificationCenter.default.addObserver(forName: .DidReceiveLoginCallback, object: nil, queue: nil) { note in
-            if let result = note.userInfo?["result"], let result = result as? Result<AuthToken, ReachFiveError> {
-                self.dismiss(animated: true)
-                switch result {
-                case let .success(authToken):
-                    self.goToProfile(authToken)
-                case let .failure(error):
-                    let alert = AppDelegate.createAlert(title: "Step up failed", message: "Error: \(error.message())")
-                    self.present(alert, animated: true)
-                }
-            }
-        }
-    }
     
     @IBAction func login(_ sender: Any) {
         let email = emailInput.text
@@ -37,9 +18,9 @@ class LoginWithPasswordController: UIViewController {
         
         AppDelegate.reachfive()
             .loginWithPassword(email: email, phoneNumber: phoneNumber, customIdentifier: customIdentifier, password: password, origin: "LoginWithPasswordController.loginWithPassword")
-            .onSuccess { resp in
+            .onSuccess { token in
                 self.error.text = nil
-                self.handleLoginFlow(flow: resp)
+                self.goToProfile(token)
             }
             .onFailure { error in
                 self.error.text = error.message()
