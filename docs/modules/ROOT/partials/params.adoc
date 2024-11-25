@@ -128,6 +128,11 @@ This helps categorize inbound traffic.
 |Enum choice between password and/or passkey.
 // end::requestTypes[]
 
+// tag::webAuthnId[]
+|[[webAuthnId,webAuthnId]] `id`
+|The ID of the registered WebAuthn device.
+// end::webAuthnId[]
+
 // tag::mode[]
 |[[mode,mode]] `mode`
 |Choice of behaviour when no credentials are available.

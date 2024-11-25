@@ -32,6 +32,9 @@
 ** Webview
 *** xref:webviewLogin.adoc[]
 *** xref:loadLoginWebview.adoc[]
+** WebAuthn
+*** xref:listWebAuthnCredentials.adoc[]
+*** xref:deleteWebAuthnRegistration.adoc[]
 * Other
 ** Profile
 *** xref:getProfile.adoc[]
