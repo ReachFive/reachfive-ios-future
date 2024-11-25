@@ -8,7 +8,7 @@ AppDelegate.reachfive().{docname}(<<webAuthnId,id>>,<<authToken>>)
 
 == Description
 
-Deletes a passkey or other WebAuthn credentials the user has registered.
+Deletes a passkey the user has registered.
 
 == Examples
 

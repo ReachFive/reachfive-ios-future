@@ -130,7 +130,7 @@ This helps categorize inbound traffic.
 
 // tag::webAuthnId[]
 |[[webAuthnId,webAuthnId]] `id`
-|The ID of the registered WebAuthn device.
+|The ID of the passkey.
 // end::webAuthnId[]
 
 // tag::mode[]
