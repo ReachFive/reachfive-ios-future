@@ -5,7 +5,7 @@ AppDelegate.reachfive()
         challengeId: "m3DaoT...7Rzp1m",
         verificationCode: "123456",
         trustDevice: true))
-  .onSuccess{ _ in
+  .onSuccess { _ in
       // Do something
   }
   .onFailure { error in

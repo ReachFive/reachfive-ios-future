@@ -9,7 +9,7 @@ AppDelegate
       phoneNumber: "+33750253354",
       verificationCode: "501028"
   )
-  .onSuccess{ _ in
+  .onSuccess { _ in
       // Do something
   }
   .onFailure { error in
