@@ -1,9 +1,6 @@
 AppDelegate
     .reachfive()
-    .requestPasswordReset(
-        email: "john.doe@gmail.com",
-        redirectUrl: "https://example-password-reset.com"
-    )
+    .deleteWebAuthnRegistration(id: id, authToken: profileAuthToken)
     .onSuccess { _ in
         // Do something
     }

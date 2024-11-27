@@ -6,7 +6,7 @@ let verifyAuthCodeRequest = VerifyAuthCodeRequest(
 )
 AppDelegate.reachfive()
   .verifyPasswordlessCode(verifyAuthCodeRequest: verifyAuthCodeRequest)
-  .onSuccess{ _ in
+  .onSuccess { _ in
     // Do something
   }
   .onFailure { error in

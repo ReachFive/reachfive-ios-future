@@ -1,0 +1,34 @@
+= {docname}
+
+[.signature]
+[subs="normal"]
+----
+AppDelegate.reachfive().{docname}(<<webAuthnId,id>>,<<authToken>>)
+----
+
+== Description
+
+Deletes a passkey the user has registered.
+
+== Examples
+
+[source, swift]
+----
+include::example${docname}.swift[]
+----
+
+== Parameters
+
+[cols="3,7a"]
+|===
+|Parameter |Description
+
+include::partial$params.adoc[tags="webAuthnId,authtoken"]
+
+|===
+
+== Response
+
+Type: `Future<(), ReachFiveError>`
+
+include::partial$models.adoc[tag=reachfiveerror]

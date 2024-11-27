@@ -6,7 +6,7 @@ AppDelegate
     .reachfive()
     .getProvider(name: providerName)?
     .logout()
-    .onSuccess{ _ in
+    .onSuccess { _ in
         // Do something
     }
     .onFailure { error in

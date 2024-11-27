@@ -7,7 +7,7 @@ AppDelegate.reachfive()
         authType: "email",
         scope: scope,
         authToken: profileAuthToken))
-  .onSuccess{ _ in
+  .onSuccess { _ in
       // Do something
   }
   .onFailure { error in

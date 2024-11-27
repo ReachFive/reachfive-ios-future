@@ -4,7 +4,7 @@ AppDelegate.reachfive()
   .mfaVerify(.PhoneNumber,
         authToken: profileAuthToken,
         code: verificationCode)
-  .onSuccess{ _ in
+  .onSuccess { _ in
       // Do something
   }
   .onFailure { error in
