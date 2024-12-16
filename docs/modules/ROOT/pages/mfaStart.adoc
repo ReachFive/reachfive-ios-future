@@ -14,6 +14,19 @@ AppDelegate.reachfive().{docname}(
 Starts the MFA email registration flow.
 When the flow is started, an email or SMS is sent to the user for verification depending on which `Credential` is used.
 
+[NOTE]
+====
+*Email*:
+
+If the user already has a verified email in their account, no additional verification code is sent.
+If an existing email exists but is unverified, it becomes automatically verified with xref:mfaVerify.adoc[].
+
+*Mobile*:
+
+If the user already has a verified phone number with the same value in their account, no additional verification code is sent.
+If an existing phone number exists with the same value but is unverified, it becomes automatically verified with xref:mfaVerify.adoc[].
+====
+
 == Examples
 
 [tabs]
