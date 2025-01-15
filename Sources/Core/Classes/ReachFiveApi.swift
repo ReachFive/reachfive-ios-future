@@ -1,7 +1,7 @@
-import Foundation
 import Alamofire
 import BrightFutures
 import DeviceKit
+import Foundation
 
 public class ReachFiveApi {
     let decoder = JSONDecoder()
@@ -128,7 +128,7 @@ public class ReachFiveApi {
             .responseJson(type: AccessTokenResponse.self, decoder: decoder)
     }
 
-    public func loginWithPassword(loginRequest: LoginRequest) -> Future<AuthenticationToken, ReachFiveError> {
+    public func loginWithPassword(loginRequest: LoginRequest) -> Future<TknMfa, ReachFiveError> {
         AF
             .request(
                 createUrl(path: "/identity/v1/password/login"),
@@ -137,7 +137,7 @@ public class ReachFiveApi {
                 encoding: JSONEncoding.default
             )
             .validate(contentType: ["application/json"])
-            .responseJson(type: AuthenticationToken.self, decoder: decoder)
+            .responseJson(type: TknMfa.self, decoder: decoder)
     }
 
     public func loginCallback(loginCallback: LoginCallback) -> Future<String, ReachFiveError> {
@@ -387,11 +387,11 @@ public class ReachFiveApi {
     ) -> Future<Void, ReachFiveError> {
         AF
             .request(
-                    createUrl(path: "/identity/v1/mfa/credentials/phone-numbers"),
-                    method: .delete,
-                    parameters: ["phone_number": phoneNumber],
-                    encoding: JSONEncoding.default,
-                    headers: tokenHeader(authToken)
+                createUrl(path: "/identity/v1/mfa/credentials/phone-numbers"),
+                method: .delete,
+                parameters: ["phone_number": phoneNumber],
+                encoding: JSONEncoding.default,
+                headers: tokenHeader(authToken)
             )
             .validate(contentType: ["application/json"])
             .responseJson(decoder: decoder)
@@ -402,10 +402,10 @@ public class ReachFiveApi {
     ) -> Future<Void, ReachFiveError> {
         AF
             .request(
-                    createUrl(path: "/identity/v1/mfa/credentials/emails"),
-                    method: .delete,
-                    encoding: JSONEncoding.default,
-                    headers: tokenHeader(authToken)
+                createUrl(path: "/identity/v1/mfa/credentials/emails"),
+                method: .delete,
+                encoding: JSONEncoding.default,
+                headers: tokenHeader(authToken)
             )
             .validate(contentType: ["application/json"])
             .responseJson(decoder: decoder)
@@ -455,7 +455,7 @@ public class ReachFiveApi {
 
     public func startMfaStepUp(
         _ request: StartMfaStepUpRequest,
-        authToken: AuthToken?
+        authToken: AuthToken? = nil
     ) -> Future<StartMfaStepUpResponse, ReachFiveError> {
         AF
             .request(
@@ -499,9 +499,9 @@ public class ReachFiveApi {
         AF
             .request(createUrl(
                 path: "/identity/v1/forgot-password"),
-                method: .post,
-                parameters: requestPasswordResetRequest.dictionary(),
-                encoding: JSONEncoding.default)
+            method: .post,
+            parameters: requestPasswordResetRequest.dictionary(),
+            encoding: JSONEncoding.default)
             .validate(contentType: ["application/json"])
             .responseJson(decoder: decoder)
     }
