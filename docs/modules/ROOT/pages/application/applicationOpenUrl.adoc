@@ -1,0 +1,36 @@
+= application(_:open:options)
+
+[.signature]
+[subs="normal"]
+----
+AppDelegate.reachfive().application(<<application, application>>, open: <<applicationOpenUrl, url>>, options: <<applicationOptions, options>>)
+----
+
+== Description
+
+Allows {company} to handle URLs in the following format:
+
+* `reachfive-clientId://`
+
+Additionally, the method allows configured providers to handle their own native links.
+
+Call this method in response to the equivalent UIKit method link:https://developer.apple.com/documentation/uikit/uiapplicationdelegate/application(_:open:options:)[`application(_:open:options)`^].
+
+== Examples
+
+[source, swift]
+----
+include::example${docname}.swift[]
+----
+
+== Parameters
+
+[cols="3,7a"]
+|===
+|Parameter |Description
+
+include::partial$params.adoc[tag="application"]
+include::partial$params.adoc[tag="applicationOpenUrl"]
+include::partial$params.adoc[tag="applicationOptions"]
+
+|===

@@ -9,6 +9,11 @@
 ** xref:guides/passkeys.adoc[]
 
 .Configuration icon:cogs[]
+** `application`()
+*** xref:application/applicationDidFinishLaunchingWithOptions.adoc[_:didFinishLaunching]
+*** xref:application/applicationContinueUserActivity.adoc[_:continue:restorationHandler]
+*** xref:application/applicationOpenUrl.adoc[_:open:options]
+*** xref:application/applicationDidBecomeActive.adoc[DidBecomeActive]
 ** xref:providerCreator.adoc[]
 
 .Methods icon:code[]
@@ -37,6 +42,7 @@
 *** xref:loadLoginWebview.adoc[]
 * Profile
 ** Account Recovery
+*** xref:addAccountRecoveryCallback.adoc[]
 *** xref:requestAccountRecovery.adoc[]
 *** xref:requestPasswordReset.adoc[]
 ** xref:getProfile.adoc[]
