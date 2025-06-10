@@ -1,11 +1,51 @@
 import Foundation
 import BrightFutures
 
+public class ContinueEmailVerification {
+    private let reachfive: ReachFive
+    private let authToken: AuthToken
+    
+    fileprivate init(reachFive: ReachFive, authToken: AuthToken) {
+        self.authToken = authToken
+        self.reachfive = reachFive
+    }
+    
+    public func verify(code: String, email: String, freshAuthToken: AuthToken? = nil) -> Future<Void, ReachFiveError> {
+        let userAuthToken = freshAuthToken ?? self.authToken
+        let verifyEmailRequest = VerifyEmailRequest(email: email, verificationCode: code)
+        return self.reachfive.reachFiveApi.verifyEmail(authToken: userAuthToken, verifyEmailRequest: verifyEmailRequest)
+    }
+}
+
+public enum EmailVerificationResponse {
+    case Success
+    case VerificationNeeded(_ continueEmailVerification: ContinueEmailVerification)
+}
+
 public extension ReachFive {
     func getProfile(authToken: AuthToken) -> Future<Profile, ReachFiveError> {
         reachFiveApi.getProfile(authToken: authToken)
     }
+    
+    func sendEmailVerification(authToken: AuthToken, redirectUrl: String? = nil) -> Future<EmailVerificationResponse, ReachFiveError>{
+        let sendEmailVerificationRequest = SendEmailVerificationRequest(redirectUrl: redirectUrl ?? sdkConfig.emailVerificationUri)
+        
+        return reachFiveApi
+            .sendEmailVerification(authToken: authToken, sendEmailVerificationRequest: sendEmailVerificationRequest)
+            .map { resp in
+                switch resp.verificationEmailSent {
+                case false: .Success
+                case true : .VerificationNeeded(ContinueEmailVerification(reachFive: self, authToken: authToken))
+                }
+            }
+    }
 
+    func verifyEmail(authToken: AuthToken, code: String, email: String) -> Future<Void, ReachFiveError> {
+        let verifyEmailRequest = VerifyEmailRequest(email: email, verificationCode: code)
+        
+        return reachFiveApi.verifyEmail(authToken: authToken, verifyEmailRequest: verifyEmailRequest)
+    }
+    
     func verifyPhoneNumber(
         authToken: AuthToken,
         phoneNumber: String,
@@ -111,6 +151,19 @@ public extension ReachFive {
 
     func addAccountRecoveryCallback(accountRecoveryCallback: @escaping AccountRecoveryCallback) {
         self.accountRecoveryCallback = accountRecoveryCallback
+    }
+    
+    func addEmailVerificationCallback(emailVerificationCallback: @escaping EmailVerificationCallback) {
+        self.emailVerificationCallback = emailVerificationCallback
+    }
+    
+    func interceptEmailVerification(_ url: URL) {
+        let params = URLComponents(url: url, resolvingAgainstBaseURL: true)?.queryItems
+        if let error = params?.first(where: { $0.name == "error" })?.value {
+            emailVerificationCallback?(.failure(.TechnicalError(reason: error, apiError: ApiError(fromQueryParams: params))))
+            return
+        }
+        emailVerificationCallback?(.success(()))
     }
 
     func interceptAccountRecovery(_ url: URL) {
