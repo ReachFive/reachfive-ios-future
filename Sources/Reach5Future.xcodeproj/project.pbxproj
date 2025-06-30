@@ -47,10 +47,10 @@
 		34689A9E22CE4666002970F9 /* VerifyPhoneNumberRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689A9D22CE4666002970F9 /* VerifyPhoneNumberRequest.swift */; };
 		34689AA122CE5D08002970F9 /* UpdateEmailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34689AA022CE5D08002970F9 /* UpdateEmailRequest.swift */; };
 		3474D28B22D32F3A005112C1 /* RequestPasswordResetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474D28A22D32F3A005112C1 /* RequestPasswordResetRequest.swift */; };
-		347FDB47229BE84500660687 /* Reach5.h in Headers */ = {isa = PBXBuildFile; fileRef = 347FDB45229BE84500660687 /* Reach5.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		347FDB47229BE84500660687 /* Reach5Future.h in Headers */ = {isa = PBXBuildFile; fileRef = 347FDB45229BE84500660687 /* Reach5Future.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		347FDB54229BE8F800660687 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB53229BE8F800660687 /* Provider.swift */; };
 		347FDB65229C02A800660687 /* SdkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB64229C02A800660687 /* SdkConfig.swift */; };
-		347FDB67229C02FE00660687 /* ReachFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB66229C02FE00660687 /* ReachFive.swift */; };
+		347FDB67229C02FE00660687 /* ReachFiveFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB66229C02FE00660687 /* ReachFiveFuture.swift */; };
 		347FDB69229C04C200660687 /* ProviderConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB68229C04C200660687 /* ProviderConfig.swift */; };
 		349E16F0230C49E0002EA06B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349E16EF230C49E0002EA06B /* Storage.swift */; };
 		34B5295A22D376FF00B7B6AA /* Pkce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B5295922D376FF00B7B6AA /* Pkce.swift */; };
@@ -69,6 +69,7 @@
 		34E508B222F19F7700BF9BAF /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E508B122F19F7700BF9BAF /* DataRequest.swift */; };
 		34F7D3E422A54AA2003A7BC0 /* ReachFiveApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */; };
 		34F7D3E622A54ADE003A7BC0 /* ProvidersConfigsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F7D3E522A54ADE003A7BC0 /* ProvidersConfigsResult.swift */; };
+		3E43368DE891042229177817 /* Pods_Reach5Future.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7A47E115451074785EA1BD /* Pods_Reach5Future.framework */; };
 		72DDB78E22EF354300048262 /* ClientConfigResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDB78D22EF354300048262 /* ClientConfigResponse.swift */; };
 		8433EA3A25F1229F00329358 /* DeviceCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433EA3925F1229F00329358 /* DeviceCredential.swift */; };
 		8496EB2425DEAFCF005098DD /* R5AuthenticatorAssertionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496EB1B25DEAFCF005098DD /* R5AuthenticatorAssertionResponse.swift */; };
@@ -88,7 +89,6 @@
 		8496EB4325DEB141005098DD /* AuthenticationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496EB3925DEB141005098DD /* AuthenticationToken.swift */; };
 		8496EB4425DEB141005098DD /* R5PublicKeyCredentialRpEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496EB3A25DEB141005098DD /* R5PublicKeyCredentialRpEntity.swift */; };
 		8496EB4525DEB141005098DD /* R5PublicKeyCredentialUserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496EB3B25DEB141005098DD /* R5PublicKeyCredentialUserEntity.swift */; };
-		93EFD59B741E0376303462D9 /* Pods_Reach5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD028BD86E6BB22BBAD012C /* Pods_Reach5.framework */; };
 		990AF3422DD2146800D31780 /* VerifyEmailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990AF3412DD2145900D31780 /* VerifyEmailRequest.swift */; };
 		990AF3442DD2154B00D31780 /* VerifyEmailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990AF3432DD2153200D31780 /* VerifyEmailResponse.swift */; };
 		991296BF2BDBBCAF00DCEDC1 /* MfaStepUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991296BE2BDBBCAF00DCEDC1 /* MfaStepUpRequest.swift */; };
@@ -139,12 +139,12 @@
 		34689A9D22CE4666002970F9 /* VerifyPhoneNumberRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumberRequest.swift; sourceTree = "<group>"; };
 		34689AA022CE5D08002970F9 /* UpdateEmailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEmailRequest.swift; sourceTree = "<group>"; };
 		3474D28A22D32F3A005112C1 /* RequestPasswordResetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPasswordResetRequest.swift; sourceTree = "<group>"; };
-		347FDB42229BE84500660687 /* Reach5.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reach5.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		347FDB45229BE84500660687 /* Reach5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reach5.h; sourceTree = "<group>"; };
+		347FDB42229BE84500660687 /* Reach5Future.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reach5Future.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		347FDB45229BE84500660687 /* Reach5Future.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reach5Future.h; sourceTree = "<group>"; };
 		347FDB46229BE84500660687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		347FDB53229BE8F800660687 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		347FDB64229C02A800660687 /* SdkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SdkConfig.swift; sourceTree = "<group>"; };
-		347FDB66229C02FE00660687 /* ReachFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFive.swift; sourceTree = "<group>"; };
+		347FDB66229C02FE00660687 /* ReachFiveFuture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveFuture.swift; sourceTree = "<group>"; };
 		347FDB68229C04C200660687 /* ProviderConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderConfig.swift; sourceTree = "<group>"; };
 		349E16EF230C49E0002EA06B /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		34B5295922D376FF00B7B6AA /* Pkce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pkce.swift; sourceTree = "<group>"; };
@@ -163,7 +163,8 @@
 		34E508B122F19F7700BF9BAF /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveApi.swift; sourceTree = "<group>"; };
 		34F7D3E522A54ADE003A7BC0 /* ProvidersConfigsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvidersConfigsResult.swift; sourceTree = "<group>"; };
-		4820021147382B7F35081385 /* Pods-Reach5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reach5.release.xcconfig"; path = "Target Support Files/Pods-Reach5/Pods-Reach5.release.xcconfig"; sourceTree = "<group>"; };
+		36644D7B78E0D5C801F1C5D9 /* Pods-Reach5Future.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reach5Future.debug.xcconfig"; path = "Target Support Files/Pods-Reach5Future/Pods-Reach5Future.debug.xcconfig"; sourceTree = "<group>"; };
+		3CC7AC82224A363953C35EBF /* Pods-Reach5Future.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reach5Future.release.xcconfig"; path = "Target Support Files/Pods-Reach5Future/Pods-Reach5Future.release.xcconfig"; sourceTree = "<group>"; };
 		72DDB78D22EF354300048262 /* ClientConfigResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientConfigResponse.swift; sourceTree = "<group>"; };
 		8433EA3925F1229F00329358 /* DeviceCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCredential.swift; sourceTree = "<group>"; };
 		8496EB1B25DEAFCF005098DD /* R5AuthenticatorAssertionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R5AuthenticatorAssertionResponse.swift; sourceTree = "<group>"; };
@@ -183,14 +184,13 @@
 		8496EB3925DEB141005098DD /* AuthenticationToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationToken.swift; sourceTree = "<group>"; };
 		8496EB3A25DEB141005098DD /* R5PublicKeyCredentialRpEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R5PublicKeyCredentialRpEntity.swift; sourceTree = "<group>"; };
 		8496EB3B25DEB141005098DD /* R5PublicKeyCredentialUserEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R5PublicKeyCredentialUserEntity.swift; sourceTree = "<group>"; };
+		8B7A47E115451074785EA1BD /* Pods_Reach5Future.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reach5Future.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		990AF3412DD2145900D31780 /* VerifyEmailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailRequest.swift; sourceTree = "<group>"; };
 		990AF3432DD2153200D31780 /* VerifyEmailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailResponse.swift; sourceTree = "<group>"; };
 		991296BE2BDBBCAF00DCEDC1 /* MfaStepUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MfaStepUpRequest.swift; sourceTree = "<group>"; };
 		9943B0842B6953C5007AD120 /* ReachFiveMfa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveMfa.swift; sourceTree = "<group>"; };
 		9943B0862B6954F1007AD120 /* MfaCredentialsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MfaCredentialsRequest.swift; sourceTree = "<group>"; };
 		9958690B2C32DDDC005CD5C4 /* TrustedDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustedDevice.swift; sourceTree = "<group>"; };
-		DBD028BD86E6BB22BBAD012C /* Pods_Reach5.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reach5.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F11E5406A766337B2CE86F9C /* Pods-Reach5.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reach5.debug.xcconfig"; path = "Target Support Files/Pods-Reach5/Pods-Reach5.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,7 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93EFD59B741E0376303462D9 /* Pods_Reach5.framework in Frameworks */,
+				3E43368DE891042229177817 /* Pods_Reach5Future.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +213,7 @@
 				2A624FD92B2BDBC400BF33A7 /* DefaultProvider.swift */,
 				2AE18CDA29FC1DAF00258D2B /* LoginWKWebview.swift */,
 				347FDB53229BE8F800660687 /* Provider.swift */,
-				347FDB66229C02FE00660687 /* ReachFive.swift */,
+				347FDB66229C02FE00660687 /* ReachFiveFuture.swift */,
 				34F7D3E322A54AA2003A7BC0 /* ReachFiveApi.swift */,
 				2AB29A0A2C1225F500D0C5C8 /* ReachFiveApplication.swift */,
 				3404A40722CB9B7E002FFEDB /* ReachFiveError.swift */,
@@ -285,7 +285,7 @@
 		347FDB43229BE84500660687 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				347FDB42229BE84500660687 /* Reach5.framework */,
+				347FDB42229BE84500660687 /* Reach5Future.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -293,7 +293,7 @@
 		347FDB44229BE84500660687 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				347FDB45229BE84500660687 /* Reach5.h */,
+				347FDB45229BE84500660687 /* Reach5Future.h */,
 				347FDB46229BE84500660687 /* Info.plist */,
 				2A2D5B102BA4C59300245439 /* PrivacyInfo.xcprivacy */,
 				34173218229D801500681CFD /* Classes */,
@@ -326,7 +326,7 @@
 		74FB8B4B94CB262BEC297380 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DBD028BD86E6BB22BBAD012C /* Pods_Reach5.framework */,
+				8B7A47E115451074785EA1BD /* Pods_Reach5Future.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -386,8 +386,8 @@
 		927803C28AA84ED9FC3390CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F11E5406A766337B2CE86F9C /* Pods-Reach5.debug.xcconfig */,
-				4820021147382B7F35081385 /* Pods-Reach5.release.xcconfig */,
+				36644D7B78E0D5C801F1C5D9 /* Pods-Reach5Future.debug.xcconfig */,
+				3CC7AC82224A363953C35EBF /* Pods-Reach5Future.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -407,16 +407,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				347FDB47229BE84500660687 /* Reach5.h in Headers */,
+				347FDB47229BE84500660687 /* Reach5Future.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		347FDB41229BE84500660687 /* Reach5 */ = {
+		347FDB41229BE84500660687 /* Reach5Future */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 347FDB4A229BE84500660687 /* Build configuration list for PBXNativeTarget "Reach5" */;
+			buildConfigurationList = 347FDB4A229BE84500660687 /* Build configuration list for PBXNativeTarget "Reach5Future" */;
 			buildPhases = (
 				3E48ED07786CEAA846211855 /* [CP] Check Pods Manifest.lock */,
 				347FDB3D229BE84500660687 /* Headers */,
@@ -428,9 +428,9 @@
 			);
 			dependencies = (
 			);
-			name = Reach5;
+			name = Reach5Future;
 			productName = Reach5;
-			productReference = 347FDB42229BE84500660687 /* Reach5.framework */;
+			productReference = 347FDB42229BE84500660687 /* Reach5Future.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -448,7 +448,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 347FDB3C229BE84500660687 /* Build configuration list for PBXProject "Reach5" */;
+			buildConfigurationList = 347FDB3C229BE84500660687 /* Build configuration list for PBXProject "Reach5Future" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -460,7 +460,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				347FDB41229BE84500660687 /* Reach5 */,
+				347FDB41229BE84500660687 /* Reach5Future */,
 			);
 		};
 /* End PBXProject section */
@@ -491,7 +491,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Reach5-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Reach5Future-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -580,7 +580,7 @@
 				34BDDA4422E5D95B00D16DAE /* ReachFiveProfile.swift in Sources */,
 				2AE18CDB29FC1DAF00258D2B /* LoginWKWebview.swift in Sources */,
 				34BDDA4022E5D73900D16DAE /* ReachFiveProviders.swift in Sources */,
-				347FDB67229C02FE00660687 /* ReachFive.swift in Sources */,
+				347FDB67229C02FE00660687 /* ReachFiveFuture.swift in Sources */,
 				9943B0872B6954F1007AD120 /* MfaCredentialsRequest.swift in Sources */,
 				2AE5330C299462DD00EF97E0 /* ReachFiveLogin.swift in Sources */,
 				8496EB3F25DEB141005098DD /* RegistrationOptions.swift in Sources */,
@@ -723,7 +723,7 @@
 		};
 		347FDB4B229BE84500660687 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F11E5406A766337B2CE86F9C /* Pods-Reach5.debug.xcconfig */;
+			baseConfigurationReference = 36644D7B78E0D5C801F1C5D9 /* Pods-Reach5Future.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -762,7 +762,7 @@
 		};
 		347FDB4C229BE84500660687 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4820021147382B7F35081385 /* Pods-Reach5.release.xcconfig */;
+			baseConfigurationReference = 3CC7AC82224A363953C35EBF /* Pods-Reach5Future.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -794,7 +794,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		347FDB3C229BE84500660687 /* Build configuration list for PBXProject "Reach5" */ = {
+		347FDB3C229BE84500660687 /* Build configuration list for PBXProject "Reach5Future" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				347FDB48229BE84500660687 /* Debug */,
@@ -803,7 +803,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		347FDB4A229BE84500660687 /* Build configuration list for PBXNativeTarget "Reach5" */ = {
+		347FDB4A229BE84500660687 /* Build configuration list for PBXNativeTarget "Reach5Future" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				347FDB4B229BE84500660687 /* Debug */,
