@@ -2,7 +2,7 @@ import Foundation
 import BrightFutures
 import AuthenticationServices
 
-public extension ReachFive {
+public extension ReachFiveFuture {
 
     func webviewLogin(_ request: WebviewLoginRequest) -> Future<AuthToken, ReachFiveError> {
 

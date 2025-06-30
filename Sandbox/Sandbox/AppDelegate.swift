@@ -60,12 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     static let providers: [ProviderCreator] = [/*GoogleProvider(variant: "one_tap"), FacebookProvider(), */AppleProvider(variant: "natif")]
     #if targetEnvironment(macCatalyst)
-    static let macLocal: ReachFive = ReachFive(sdkConfig: sdkLocal, providersCreators: providers, storage: storage)
-    static let macRemote: ReachFive = ReachFive(sdkConfig: sdkRemote, providersCreators: providers, storage: storage)
+    static let macLocal: ReachFiveFuture = ReachFiveFuture(sdkConfig: sdkLocal, providersCreators: providers, storage: storage)
+    static let macRemote: ReachFiveFuture = ReachFiveFuture(sdkConfig: sdkRemote, providersCreators: providers, storage: storage)
     let reachfive = macLocal
     #else
-    static let local: ReachFive = ReachFive(sdkConfig: sdkLocal, providersCreators: providers, storage: storage)
-    static let remote: ReachFive = ReachFive(sdkConfig: sdkRemote, providersCreators: providers, storage: storage)
+    static let local: ReachFiveFuture = ReachFiveFuture(sdkConfig: sdkLocal, providersCreators: providers, storage: storage)
+    static let remote: ReachFiveFuture = ReachFiveFuture(sdkConfig: sdkRemote, providersCreators: providers, storage: storage)
     #if targetEnvironment(simulator)
     let reachfive = local
     #else
@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     #endif
     #endif
 
-    static func reachfive() -> ReachFive {
+    static func reachfive() -> ReachFiveFuture {
         let app = UIApplication.shared.delegate as! AppDelegate
         return app.reachfive
     }
@@ -93,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("addEmailVerificationCallback \(result)")
             NotificationCenter.default.post(name: .DidReceiveEmailVerificationCallback, object: nil, userInfo: ["result": result])
         }
-        
+
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         // Ceci est l'id tel que renvoyé par Apple dans idToken.sub ou AppleIDCredential.user
         appleIDProvider.getCredentialState(forUserID: "000707.3cc381460bce4bcc96e6fd5abdc1f121.1742") { (credentialState, error) in

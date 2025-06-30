@@ -1,7 +1,7 @@
 import Foundation
 import BrightFutures
 
-public extension ReachFive {
+public extension ReachFiveFuture {
     func getProvider(name: String) -> Provider? {
         providers.first(where: { $0.name == name })
     }

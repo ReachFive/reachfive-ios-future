@@ -6,12 +6,12 @@ public enum PasswordLessRequest {
     case PhoneNumber(phoneNumber: String, redirectUri: String?, origin: String? = nil)
 }
 
-public extension ReachFive {
-    
+public extension ReachFiveFuture {
+
     func addPasswordlessCallback(passwordlessCallback: @escaping PasswordlessCallback) {
         self.passwordlessCallback = passwordlessCallback
     }
-    
+
     func startPasswordless(_ request: PasswordLessRequest) -> Future<(), ReachFiveError> {
         let pkce = Pkce.generate()
         storage.save(key: pkceKey, value: pkce)
@@ -40,7 +40,7 @@ public extension ReachFive {
             return reachFiveApi.startPasswordless(startPasswordlessRequest)
         }
     }
-    
+
     func verifyPasswordlessCode(verifyAuthCodeRequest: VerifyAuthCodeRequest) -> Future<AuthToken, ReachFiveError> {
         let pkce: Pkce? = storage.take(key: pkceKey)
         guard let pkce else {
@@ -61,19 +61,19 @@ public extension ReachFive {
                 return self.reachFiveApi
                     .verifyPasswordless(verifyPasswordlessRequest: verifyPasswordlessRequest)
                     .flatMap { response in
-                        
+
                         guard let code = response.code else {
                             return Future(error: .TechnicalError(reason: "No authorization code"))
                         }
-                        
+
                         return self.authWithCode(code: code, pkce: pkce)
                     }
             }
     }
-    
+
     internal func interceptPasswordless(_ url: URL) {
         let params = URLComponents(url: url, resolvingAgainstBaseURL: true)?.queryItems
-        
+
         let pkce: Pkce? = storage.take(key: pkceKey)
         guard let pkce else {
             passwordlessCallback?(.failure(.TechnicalError(reason: "Pkce not found")))
@@ -83,7 +83,7 @@ public extension ReachFive {
             passwordlessCallback?(.failure(.TechnicalError(reason: "No authorization code", apiError: ApiError(fromQueryParams: params))))
             return
         }
-        
+
         authWithCode(code: code, pkce: pkce)
             .onComplete { result in
                 self.passwordlessCallback?(result)

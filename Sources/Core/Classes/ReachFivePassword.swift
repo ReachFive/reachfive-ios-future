@@ -6,7 +6,7 @@ public enum LoginFlow {
     case OngoingStepUp(token: String, availableMfaCredentialItemTypes: [MfaCredentialItemType])
 }
 
-public extension ReachFive {
+public extension ReachFiveFuture {
     func signup(profile: ProfileSignupRequest, redirectUrl: String? = nil, scope: [String]? = nil, origin: String? = nil) -> Future<AuthToken, ReachFiveError> {
         let signupRequest = SignupRequest(
             clientId: sdkConfig.clientId,

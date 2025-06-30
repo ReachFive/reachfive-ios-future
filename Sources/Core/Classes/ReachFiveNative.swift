@@ -2,7 +2,7 @@ import Foundation
 import AuthenticationServices
 import BrightFutures
 
-public extension ReachFive {
+public extension ReachFiveFuture {
 // On naming and signature for methods:
 // first argument indicates modality to distinguish the two primary way UI is shown to user: Modal and AutoFill
 // first argument label contains "with" instead of the method name in conformance to https://www.swift.org/documentation/api-design-guidelines/#give-prepositional-phrase-argument-label

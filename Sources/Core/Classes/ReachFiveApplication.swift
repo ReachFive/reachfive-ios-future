@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-public extension ReachFive {
+public extension ReachFiveFuture {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
         interceptUrl(url)
         for provider in providers {
@@ -9,23 +9,23 @@ public extension ReachFive {
         }
         return true
     }
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         initialize().onSuccess { providers in
             for provider in providers {
                 let _ = provider.application(application, didFinishLaunchingWithOptions: launchOptions)
             }
         }
-        
+
         return true
     }
-    
+
     func applicationDidBecomeActive(_ application: UIApplication) {
         for provider in providers {
             let _ = provider.applicationDidBecomeActive(application)
         }
     }
-    
+
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         for provider in providers {
             let _ = provider.application(application, continue: userActivity, restorationHandler: restorationHandler)
