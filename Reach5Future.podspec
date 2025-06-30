@@ -21,4 +21,5 @@ Pod::Spec.new do |spec|
   }
 
   spec.dependency 'BrightFutures', '~> 8.2.0'
+  spec.dependency 'Reach5', '~> 8.2.0'
 end
