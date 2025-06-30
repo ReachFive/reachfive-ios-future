@@ -1,6 +1,7 @@
 import Foundation
 import BrightFutures
 import AuthenticationServices
+import Reach5
 
 public extension ReachFiveFuture {
 

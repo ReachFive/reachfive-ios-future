@@ -1,5 +1,6 @@
 import BrightFutures
 import Foundation
+import Reach5
 
 public enum LoginFlow {
     case AchievedLogin(authToken: AuthToken)

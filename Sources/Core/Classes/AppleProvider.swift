@@ -1,6 +1,7 @@
 import BrightFutures
 import Foundation
 import UIKit
+import Reach5
 
 public class AppleProvider: ProviderCreator {
     public static let NAME = "apple"

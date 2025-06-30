@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import BrightFutures
+import Reach5
 
 public protocol ProviderCreator {
     var name: String { get }

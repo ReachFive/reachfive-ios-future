@@ -1,5 +1,6 @@
 import Foundation
 import BrightFutures
+import Reach5
 
 public enum PasswordLessRequest {
     case Email(email: String, redirectUri: String?, origin: String? = nil)
