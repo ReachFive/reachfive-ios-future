@@ -7,16 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A624FDA2B2BDBC400BF33A7 /* DefaultProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A624FD92B2BDBC400BF33A7 /* DefaultProvider.swift */; };
-		2AB29A0B2C1225F500D0C5C8 /* ReachFiveApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB29A0A2C1225F500D0C5C8 /* ReachFiveApplication.swift */; };
-		2AE040E42C88E33900162014 /* AppleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE040E32C88E33900162014 /* AppleProvider.swift */; };
+		2A3B0EBE2E130E4E00849D8D /* FutureBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3B0EBD2E130E4700849D8D /* FutureBridge.swift */; };
 		2AE18CDB29FC1DAF00258D2B /* LoginWKWebview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE18CDA29FC1DAF00258D2B /* LoginWKWebview.swift */; };
 		2AE5330B299462DD00EF97E0 /* ReachFiveWebviewLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE53307299462DD00EF97E0 /* ReachFiveWebviewLogin.swift */; };
 		2AE5330C299462DD00EF97E0 /* ReachFiveLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE53308299462DD00EF97E0 /* ReachFiveLogin.swift */; };
 		2AE5330E299462DD00EF97E0 /* ReachFiveNative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE5330A299462DD00EF97E0 /* ReachFiveNative.swift */; };
 		3417FF6A22FAD1810009EC84 /* ReachFivePasswordLess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3417FF6922FAD1810009EC84 /* ReachFivePasswordLess.swift */; };
 		347FDB47229BE84500660687 /* Reach5Future.h in Headers */ = {isa = PBXBuildFile; fileRef = 347FDB45229BE84500660687 /* Reach5Future.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		347FDB54229BE8F800660687 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB53229BE8F800660687 /* Provider.swift */; };
+		347FDB54229BE8F800660687 /* ProviderFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB53229BE8F800660687 /* ProviderFuture.swift */; };
 		347FDB67229C02FE00660687 /* ReachFiveFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347FDB66229C02FE00660687 /* ReachFiveFuture.swift */; };
 		34BDDA4022E5D73900D16DAE /* ReachFiveProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA3F22E5D73900D16DAE /* ReachFiveProviders.swift */; };
 		34BDDA4222E5D87E00D16DAE /* ReachFivePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BDDA4122E5D87E00D16DAE /* ReachFivePassword.swift */; };
@@ -27,9 +25,7 @@
 
 /* Begin PBXFileReference section */
 		2A2D5B102BA4C59300245439 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		2A624FD92B2BDBC400BF33A7 /* DefaultProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProvider.swift; sourceTree = "<group>"; };
-		2AB29A0A2C1225F500D0C5C8 /* ReachFiveApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveApplication.swift; sourceTree = "<group>"; };
-		2AE040E32C88E33900162014 /* AppleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleProvider.swift; sourceTree = "<group>"; };
+		2A3B0EBD2E130E4700849D8D /* FutureBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureBridge.swift; sourceTree = "<group>"; };
 		2AE18CDA29FC1DAF00258D2B /* LoginWKWebview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWKWebview.swift; sourceTree = "<group>"; };
 		2AE53307299462DD00EF97E0 /* ReachFiveWebviewLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachFiveWebviewLogin.swift; sourceTree = "<group>"; };
 		2AE53308299462DD00EF97E0 /* ReachFiveLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachFiveLogin.swift; sourceTree = "<group>"; };
@@ -38,7 +34,7 @@
 		347FDB42229BE84500660687 /* Reach5Future.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reach5Future.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		347FDB45229BE84500660687 /* Reach5Future.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reach5Future.h; sourceTree = "<group>"; };
 		347FDB46229BE84500660687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		347FDB53229BE8F800660687 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		347FDB53229BE8F800660687 /* ProviderFuture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProviderFuture.swift; sourceTree = "<group>"; };
 		347FDB66229C02FE00660687 /* ReachFiveFuture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveFuture.swift; sourceTree = "<group>"; };
 		34BDDA3F22E5D73900D16DAE /* ReachFiveProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFiveProviders.swift; sourceTree = "<group>"; };
 		34BDDA4122E5D87E00D16DAE /* ReachFivePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachFivePassword.swift; sourceTree = "<group>"; };
@@ -61,15 +57,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A3B0EBC2E130E3E00849D8D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2A3B0EBD2E130E4700849D8D /* FutureBridge.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		34173218229D801500681CFD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2AE040E32C88E33900162014 /* AppleProvider.swift */,
-				2A624FD92B2BDBC400BF33A7 /* DefaultProvider.swift */,
 				2AE18CDA29FC1DAF00258D2B /* LoginWKWebview.swift */,
-				347FDB53229BE8F800660687 /* Provider.swift */,
+				347FDB53229BE8F800660687 /* ProviderFuture.swift */,
 				347FDB66229C02FE00660687 /* ReachFiveFuture.swift */,
-				2AB29A0A2C1225F500D0C5C8 /* ReachFiveApplication.swift */,
 				2AE53308299462DD00EF97E0 /* ReachFiveLogin.swift */,
 				9943B0842B6953C5007AD120 /* ReachFiveMfa.swift */,
 				2AE5330A299462DD00EF97E0 /* ReachFiveNative.swift */,
@@ -78,6 +79,7 @@
 				34BDDA4322E5D95B00D16DAE /* ReachFiveProfile.swift */,
 				34BDDA3F22E5D73900D16DAE /* ReachFiveProviders.swift */,
 				2AE53307299462DD00EF97E0 /* ReachFiveWebviewLogin.swift */,
+				2A3B0EBC2E130E3E00849D8D /* Utils */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -233,19 +235,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AB29A0B2C1225F500D0C5C8 /* ReachFiveApplication.swift in Sources */,
 				2AE5330E299462DD00EF97E0 /* ReachFiveNative.swift in Sources */,
-				347FDB54229BE8F800660687 /* Provider.swift in Sources */,
+				347FDB54229BE8F800660687 /* ProviderFuture.swift in Sources */,
 				9943B0852B6953C5007AD120 /* ReachFiveMfa.swift in Sources */,
-				2AE040E42C88E33900162014 /* AppleProvider.swift in Sources */,
 				34BDDA4222E5D87E00D16DAE /* ReachFivePassword.swift in Sources */,
 				2AE5330B299462DD00EF97E0 /* ReachFiveWebviewLogin.swift in Sources */,
 				3417FF6A22FAD1810009EC84 /* ReachFivePasswordLess.swift in Sources */,
-				2A624FDA2B2BDBC400BF33A7 /* DefaultProvider.swift in Sources */,
 				34BDDA4422E5D95B00D16DAE /* ReachFiveProfile.swift in Sources */,
 				2AE18CDB29FC1DAF00258D2B /* LoginWKWebview.swift in Sources */,
 				34BDDA4022E5D73900D16DAE /* ReachFiveProviders.swift in Sources */,
 				347FDB67229C02FE00660687 /* ReachFiveFuture.swift in Sources */,
+				2A3B0EBE2E130E4E00849D8D /* FutureBridge.swift in Sources */,
 				2AE5330C299462DD00EF97E0 /* ReachFiveLogin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

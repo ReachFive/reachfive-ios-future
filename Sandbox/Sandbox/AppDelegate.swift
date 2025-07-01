@@ -2,6 +2,7 @@ import AuthenticationServices
 import BrightFutures
 import Foundation
 import Reach5
+import Reach5Future
 //import Reach5Google
 //import Reach5Facebook
 import UIKit
@@ -81,15 +82,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print("application:didFinishLaunchingWithOptions:\(launchOptions ?? [:])")
 
-        reachfive.addPasswordlessCallback { result in
+        reachfive.reachfive.addPasswordlessCallback { result in
             print("addPasswordlessCallback \(result)")
             NotificationCenter.default.post(name: .DidReceiveLoginCallback, object: nil, userInfo: ["result": result])
         }
-        reachfive.addMfaCredentialRegistrationCallback { result in
+        reachfive.reachfive.addMfaCredentialRegistrationCallback { result in
             print("addMfaCredentialRegistrationCallback \(result)")
             NotificationCenter.default.post(name: .DidReceiveMfaVerifyEmail, object: nil, userInfo: ["result": result])
         }
-        reachfive.addEmailVerificationCallback { result in
+        reachfive.reachfive.addEmailVerificationCallback { result in
             print("addEmailVerificationCallback \(result)")
             NotificationCenter.default.post(name: .DidReceiveEmailVerificationCallback, object: nil, userInfo: ["result": result])
         }
@@ -107,15 +108,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        return reachfive.application(application, didFinishLaunchingWithOptions: launchOptions)
+        return reachfive.reachfive.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        reachfive.application(application, continue: userActivity, restorationHandler: restorationHandler)
+        reachfive.reachfive.application(application, continue: userActivity, restorationHandler: restorationHandler)
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        reachfive.application(app, open: url, options: options)
+        reachfive.reachfive.application(app, open: url, options: options)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -138,7 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         print("applicationDidBecomeActive")
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        reachfive.applicationDidBecomeActive(application)
+        reachfive.reachfive.applicationDidBecomeActive(application)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
