@@ -2,29 +2,29 @@ import Foundation
 import BrightFutures
 import Reach5
 
-public extension ReachFiveFuture {
+public extension ReachFive {
 
     func logout() -> Future<(), ReachFiveError> {
-        bridge { 
-            await self.reachfive.logout()
+        bridge {
+            await self.logout()
         }
     }
 
     func refreshAccessToken(authToken: AuthToken) -> Future<AuthToken, ReachFiveError> {
-        bridge { 
-            await self.reachfive.refreshAccessToken(authToken: authToken)
+        bridge {
+            await self.refreshAccessToken(authToken: authToken)
         }
     }
 
     func loginCallback(tkn: String, scopes: [String]?, origin: String? = nil) -> Future<AuthToken, ReachFiveError> {
-        bridge { 
-            await self.reachfive.loginCallback(tkn: tkn, scopes: scopes, origin: origin)
+        bridge {
+            await self.loginCallback(tkn: tkn, scopes: scopes, origin: origin)
         }
     }
 
     func authWithCode(code: String, pkce: Pkce) -> Future<AuthToken, ReachFiveError> {
-        bridge { 
-            await self.reachfive.authWithCode(code: code, pkce: pkce)
+        bridge {
+            await self.authWithCode(code: code, pkce: pkce)
         }
     }
 }

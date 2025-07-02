@@ -3,11 +3,11 @@ import BrightFutures
 import AuthenticationServices
 import Reach5
 
-public extension ReachFiveFuture {
+public extension ReachFive {
 
     func webviewLogin(_ request: WebviewLoginRequest) -> Future<AuthToken, ReachFiveError> {
         bridge {
-            await self.reachfive.webviewLogin(request)
+            await self.webviewLogin(request)
         }
     }
 }

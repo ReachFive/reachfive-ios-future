@@ -9,7 +9,7 @@ class LoginCustomWebviewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let pkce = Pkce.generate()
-        let reachfive = AppDelegate.reachfive().reachfive
+        let reachfive = AppDelegate.reachfive()
         AppDelegate.storage.save(key: reachfive.pkceKey, value: pkce)
         let webView = WKWebView(frame: view.frame, configuration: WKWebViewConfiguration())
         webView.navigationDelegate = self
@@ -22,7 +22,7 @@ extension LoginCustomWebviewController: WKNavigationDelegate {
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> ()) {
         let app: UIApplication = UIApplication.shared
         // not sure why the callback has a scheme in lowercase
-        let reachfive = AppDelegate.reachfive().reachfive
+        let reachfive = AppDelegate.reachfive()
         guard let url = navigationAction.request.url, url.scheme == reachfive.sdkConfig.baseScheme.lowercased(), app.canOpenURL(url) else {
             decisionHandler(.allow)
             return
@@ -54,7 +54,7 @@ extension LoginCustomWebviewController: WKNavigationDelegate {
             }
             let params = URLComponents(url: url, resolvingAgainstBaseURL: true)?.queryItems
             if let code = params?.first(where: { $0.name == "code" })?.value {
-                AppDelegate.reachfive().authWithCode(code: code, pkce: pkce).onComplete { self.handleResult(result: $0) }
+                reachfive.authWithCode(code: code, pkce: pkce).onComplete { self.handleResult(result: $0) }
             }
         }
     }

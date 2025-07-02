@@ -1,6 +1,7 @@
 import BrightFutures
 import Foundation
 import Reach5
+import Reach5Future
 import UIKit
 
 class MfaController: UIViewController {
@@ -149,10 +150,9 @@ class MfaAction {
                 
                 // Automatically refresh the token if it is stale
                 return AppDelegate.reachfive()
-                    .refreshAccessToken(authToken: authToken).flatMap { (freshToken: AuthToken) in
+                    .refreshAccessToken(authToken: authToken).flatMap { (freshToken: AuthToken) -> Future<MfaStartRegistrationResponse, ReachFiveError> in
                         AppDelegate.storage.setToken(freshToken)
-                        return AppDelegate.reachfive()
-                            .mfaStart(registering: credential, authToken: freshToken)
+                        return AppDelegate.reachfive().mfaStart(registering: credential, authToken: freshToken)
                     }
             }
             .flatMap { resp in
@@ -169,7 +169,7 @@ class MfaAction {
     func mfaStart(stepUp startStepUp: StartStepUp, authToken: AuthToken) -> Future<AuthToken, ReachFiveError> {
         return AppDelegate.reachfive()
             .mfaStart(stepUp: startStepUp)
-            .recoverWith { error in
+            .recoverWith { error -> Future<ContinueStepUp, ReachFiveError> in
                 guard case let .AuthFailure(reason: _, apiError: apiError) = error,
                       let key = apiError?.errorMessageKey,
                       key == "error.accessToken.freshness"
@@ -178,10 +178,9 @@ class MfaAction {
                 }
 
                 return AppDelegate.reachfive()
-                    .refreshAccessToken(authToken: authToken).flatMap { (freshToken: AuthToken) in
+                    .refreshAccessToken(authToken: authToken).flatMap { (freshToken: AuthToken) -> Future<ContinueStepUp, ReachFiveError> in
                         AppDelegate.storage.setToken(freshToken)
-                        return AppDelegate.reachfive()
-                            .mfaStart(stepUp: startStepUp)
+                        return AppDelegate.reachfive().mfaStart(stepUp: startStepUp)
                     }
             }
             .flatMap { resp in

@@ -2,24 +2,16 @@ import Foundation
 import BrightFutures
 import Reach5
 
-public extension ReachFiveFuture {
-    func getProvider(name: String) -> Provider? {
-        self.reachfive.getProvider(name: name)
-    }
-
-    func getProviders() -> [Provider] {
-        reachfive.getProviders()
-    }
-
+public extension ReachFive {
     func reinitialize() -> Future<[Provider], ReachFiveError> {
         bridge {
-            await self.reachfive.reinitialize()
+            await self.reinitialize()
         }
     }
 
     func initialize() -> Future<[Provider], ReachFiveError> {
         bridge {
-            await self.reachfive.initialize()
+            await self.initialize()
         }
     }
 }

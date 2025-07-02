@@ -10,22 +10,22 @@ public extension ContinueEmailVerification {
     }
 }
 
-public extension ReachFiveFuture {
+public extension ReachFive {
     func getProfile(authToken: AuthToken) -> Future<Profile, ReachFiveError> {
         bridge {
-            await self.reachfive.getProfile(authToken: authToken)
+            await self.getProfile(authToken: authToken)
         }
     }
 
     func sendEmailVerification(authToken: AuthToken, redirectUrl: String? = nil) -> Future<EmailVerificationResponse, ReachFiveError>{
         bridge {
-            await self.reachfive.sendEmailVerification(authToken: authToken, redirectUrl: redirectUrl)
+            await self.sendEmailVerification(authToken: authToken, redirectUrl: redirectUrl)
         }
     }
 
     func verifyEmail(authToken: AuthToken, code: String, email: String) -> Future<Void, ReachFiveError> {
         bridge {
-            await self.reachfive.verifyEmail(authToken: authToken, code: code, email: email)
+            await self.verifyEmail(authToken: authToken, code: code, email: email)
         }
     }
 
@@ -35,7 +35,7 @@ public extension ReachFiveFuture {
         verificationCode: String
     ) -> Future<(), ReachFiveError> {
         bridge {
-            await self.reachfive.verifyPhoneNumber(authToken: authToken, phoneNumber: phoneNumber, verificationCode: verificationCode)
+            await self.verifyPhoneNumber(authToken: authToken, phoneNumber: phoneNumber, verificationCode: verificationCode)
         }
     }
 
@@ -45,7 +45,7 @@ public extension ReachFiveFuture {
         redirectUrl: String? = nil
     ) -> Future<Profile, ReachFiveError> {
         bridge {
-            await self.reachfive.updateEmail(authToken: authToken, email: email, redirectUrl: redirectUrl)
+            await self.updateEmail(authToken: authToken, email: email, redirectUrl: redirectUrl)
         }
     }
 
@@ -54,7 +54,7 @@ public extension ReachFiveFuture {
         phoneNumber: String
     ) -> Future<Profile, ReachFiveError> {
         bridge {
-            await self.reachfive.updatePhoneNumber(authToken: authToken, phoneNumber: phoneNumber)
+            await self.updatePhoneNumber(authToken: authToken, phoneNumber: phoneNumber)
         }
     }
 
@@ -63,7 +63,7 @@ public extension ReachFiveFuture {
         profile: Profile
     ) -> Future<Profile, ReachFiveError> {
         bridge {
-            await self.reachfive.updateProfile(authToken: authToken, profile: profile)
+            await self.updateProfile(authToken: authToken, profile: profile)
         }
     }
 
@@ -72,13 +72,13 @@ public extension ReachFiveFuture {
         profileUpdate: ProfileUpdate
     ) -> Future<Profile, ReachFiveError> {
         bridge {
-            await self.reachfive.updateProfile(authToken: authToken, profileUpdate: profileUpdate)
+            await self.updateProfile(authToken: authToken, profileUpdate: profileUpdate)
         }
     }
 
     func updatePassword(_ updatePasswordParams: UpdatePasswordParams) -> Future<(), ReachFiveError> {
         bridge {
-            await self.reachfive.updatePassword(updatePasswordParams)
+            await self.updatePassword(updatePasswordParams)
         }
     }
 
@@ -88,7 +88,7 @@ public extension ReachFiveFuture {
         redirectUrl: String? = nil
     ) -> Future<(), ReachFiveError> {
         bridge {
-            await self.reachfive.requestPasswordReset(email: email, phoneNumber: phoneNumber, redirectUrl: redirectUrl)
+            await self.requestPasswordReset(email: email, phoneNumber: phoneNumber, redirectUrl: redirectUrl)
         }
     }
 
@@ -99,21 +99,21 @@ public extension ReachFiveFuture {
         origin: String? = nil
     ) -> Future<(), ReachFiveError> {
         bridge {
-            await self.reachfive.requestAccountRecovery(email: email, phoneNumber: phoneNumber, redirectUrl: redirectUrl, origin: origin)
+            await self.requestAccountRecovery(email: email, phoneNumber: phoneNumber, redirectUrl: redirectUrl, origin: origin)
         }
     }
 
     /// Lists all passkeys the user has registered
     func listWebAuthnCredentials(authToken: AuthToken) -> Future<[DeviceCredential], ReachFiveError> {
         bridge {
-            await self.reachfive.listWebAuthnCredentials(authToken: authToken)
+            await self.listWebAuthnCredentials(authToken: authToken)
         }
     }
 
     /// Deletes a passkey the user has registered
     func deleteWebAuthnRegistration(id: String, authToken: AuthToken) -> Future<(), ReachFiveError> {
         bridge {
-            await self.reachfive.deleteWebAuthnRegistration(id: id, authToken: authToken)
+            await self.deleteWebAuthnRegistration(id: id, authToken: authToken)
         }
     }
 }

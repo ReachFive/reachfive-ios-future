@@ -7,7 +7,7 @@ class RecoveryVerificationController: UIViewController {
     
     @IBOutlet weak var code: UITextField!
     override func viewDidLoad() {
-        AppDelegate.reachfive().reachfive.addAccountRecoveryCallback { result in
+        AppDelegate.reachfive().addAccountRecoveryCallback { result in
             switch result {
             case .success(let resp):
                 if let recoveryEndController = self.storyboard?.instantiateViewController(withIdentifier: "AccountRecoveryEnd") as? RecoveryEndController {
