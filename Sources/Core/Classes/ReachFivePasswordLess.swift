@@ -6,13 +6,13 @@ public extension ReachFive {
 
     func startPasswordless(_ request: PasswordLessRequest) -> Future<(), ReachFiveError> {
         bridge {
-            await self.startPasswordless(request)
+            try await self.startPasswordless(request)
         }
     }
 
     func verifyPasswordlessCode(verifyAuthCodeRequest: VerifyAuthCodeRequest) -> Future<AuthToken, ReachFiveError> {
         bridge {
-            await self.verifyPasswordlessCode(verifyAuthCodeRequest: verifyAuthCodeRequest)
+            try await self.verifyPasswordlessCode(verifyAuthCodeRequest: verifyAuthCodeRequest)
         }
     }
 }

@@ -1,10 +1,15 @@
 import BrightFutures
+import Reach5
 
-public func bridge<T, E: Error>(resolver: @escaping () async -> Result<T, E>) -> Future<T, E> {
-    let promise = Promise<T, E>()
+public func bridge<T>(resolver: @escaping () async throws -> T) -> Future<T, ReachFiveError> {
+    let promise = Promise<T, ReachFiveError>()
     Task {
-        let result = await resolver()
-        promise.complete(result)
+        do {
+            let result = try await resolver()
+            promise.success(result)
+        } catch {
+            promise.failure(error as! ReachFiveError)
+        }
     }
     return promise.future
 }

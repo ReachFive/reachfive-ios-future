@@ -6,25 +6,25 @@ public extension ReachFive {
 
     func logout() -> Future<(), ReachFiveError> {
         bridge {
-            await self.logout()
+            try await self.logout()
         }
     }
 
     func refreshAccessToken(authToken: AuthToken) -> Future<AuthToken, ReachFiveError> {
         bridge {
-            await self.refreshAccessToken(authToken: authToken)
+            try await self.refreshAccessToken(authToken: authToken)
         }
     }
 
     func loginCallback(tkn: String, scopes: [String]?, origin: String? = nil) -> Future<AuthToken, ReachFiveError> {
         bridge {
-            await self.loginCallback(tkn: tkn, scopes: scopes, origin: origin)
+            try await self.loginCallback(tkn: tkn, scopes: scopes, origin: origin)
         }
     }
 
     func authWithCode(code: String, pkce: Pkce) -> Future<AuthToken, ReachFiveError> {
         bridge {
-            await self.authWithCode(code: code, pkce: pkce)
+            try await self.authWithCode(code: code, pkce: pkce)
         }
     }
 }

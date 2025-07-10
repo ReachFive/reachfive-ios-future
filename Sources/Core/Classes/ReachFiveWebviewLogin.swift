@@ -7,7 +7,7 @@ public extension ReachFive {
 
     func webviewLogin(_ request: WebviewLoginRequest) -> Future<AuthToken, ReachFiveError> {
         bridge {
-            await self.webviewLogin(request)
+            try await self.webviewLogin(request)
         }
     }
 }

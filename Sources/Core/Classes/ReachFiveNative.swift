@@ -8,7 +8,7 @@ public extension ReachFive {
     @available(iOS 16.0, *)
     func signup(withRequest request: PasskeySignupRequest) -> Future<AuthToken, ReachFiveError> {
         bridge {
-            await self.signup(withRequest: request)
+            try await self.signup(withRequest: request)
         }
     }
 
@@ -22,7 +22,7 @@ public extension ReachFive {
     @available(iOS 16.0, *)
     func beginAutoFillAssistedPasskeyLogin(withRequest request: NativeLoginRequest) -> Future<AuthToken, ReachFiveError> {
         bridge {
-            await self.beginAutoFillAssistedPasskeyLogin(withRequest: request)
+            try await self.beginAutoFillAssistedPasskeyLogin(withRequest: request)
         }
     }
 
@@ -34,7 +34,7 @@ public extension ReachFive {
     /// - Returns: an AuthToken when the user was successfully logged in, ReachFiveError.AuthCanceled when the user cancelled the modal sheet or when there was no credentials available, or other kinds of ReachFiveError
     func login(withRequest request: NativeLoginRequest, usingModalAuthorizationFor requestTypes: [ModalAuthorization], display mode: Mode) -> Future<LoginFlow, ReachFiveError> {
         bridge {
-            await self.login(withRequest: request, usingModalAuthorizationFor: requestTypes, display: mode)
+            try await self.login(withRequest: request, usingModalAuthorizationFor: requestTypes, display: mode)
         }
     }
 
@@ -47,7 +47,7 @@ public extension ReachFive {
     /// - Returns: an AuthToken when the user was successfully logged in, ReachFiveError.AuthCanceled when the user cancelled the modal sheet or when there was no credentials available, or other kinds of ReachFiveError
     func login(withNonDiscoverableUsername username: Username, forRequest request: NativeLoginRequest, usingModalAuthorizationFor requestTypes: [NonDiscoverableAuthorization], display mode: Mode) -> Future<AuthToken, ReachFiveError> {
         bridge {
-            await self.login(withNonDiscoverableUsername: username, forRequest: request, usingModalAuthorizationFor: requestTypes, display: mode)
+            try await self.login(withNonDiscoverableUsername: username, forRequest: request, usingModalAuthorizationFor: requestTypes, display: mode)
         }
     }
 
@@ -59,14 +59,14 @@ public extension ReachFive {
     @available(iOS 16.0, *)
     func registerNewPasskey(withRequest request: NewPasskeyRequest, authToken: AuthToken) -> Future<(), ReachFiveError> {
         bridge {
-            await self.registerNewPasskey(withRequest: request, authToken: authToken)
+            try await self.registerNewPasskey(withRequest: request, authToken: authToken)
         }
     }
 
     @available(iOS 16.0, *)
     func resetPasskeys(withRequest request: ResetPasskeyRequest) -> Future<(), ReachFiveError> {
         bridge {
-            await self.resetPasskeys(withRequest: request)
+            try await self.resetPasskeys(withRequest: request)
         }
     }
 }

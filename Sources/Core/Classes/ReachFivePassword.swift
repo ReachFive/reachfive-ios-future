@@ -5,7 +5,7 @@ import Reach5
 public extension ReachFive {
     func signup(profile: ProfileSignupRequest, redirectUrl: String? = nil, scope: [String]? = nil, origin: String? = nil) -> Future<AuthToken, ReachFiveError> {
         bridge {
-            await self.signup(profile: profile, redirectUrl: redirectUrl, scope: scope, origin: origin)
+            try await self.signup(profile: profile, redirectUrl: redirectUrl, scope: scope, origin: origin)
         }
     }
 
@@ -18,7 +18,7 @@ public extension ReachFive {
         origin: String? = nil
     ) -> Future<LoginFlow, ReachFiveError> {
         bridge {
-            await self.loginWithPassword(email: email, phoneNumber: phoneNumber, customIdentifier: customIdentifier, password: password, scope: scope, origin: origin)
+            try await self.loginWithPassword(email: email, phoneNumber: phoneNumber, customIdentifier: customIdentifier, password: password, scope: scope, origin: origin)
         }
     }
 }
