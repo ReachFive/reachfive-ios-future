@@ -1,5 +1,4 @@
 import BrightFutures
-import Foundation
 import Reach5
 
 public extension ReachFive {

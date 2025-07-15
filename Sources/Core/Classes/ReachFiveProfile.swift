@@ -1,6 +1,5 @@
-import Foundation
-import Reach5
 import BrightFutures
+import Reach5
 
 public extension ContinueEmailVerification {
     func verify(code: String, email: String, freshAuthToken token: AuthToken? = nil) -> Future<Void, ReachFiveError> {
