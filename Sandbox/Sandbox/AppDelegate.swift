@@ -2,8 +2,9 @@ import AuthenticationServices
 import BrightFutures
 import Foundation
 import Reach5
-import Reach5Google
-import Reach5Facebook
+import Reach5Future
+//import Reach5Google
+//import Reach5Facebook
 import UIKit
 
 #if targetEnvironment(macCatalyst)
@@ -58,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         clientId: "9DKRdQyDLpaJqQQQAR9K"
     )
 
-    static let providers: [ProviderCreator] = [GoogleProvider(variant: "one_tap"), FacebookProvider(), AppleProvider(variant: "natif")]
+    static let providers: [ProviderCreator] = [/*GoogleProvider(variant: "one_tap"), FacebookProvider(), */AppleProvider(variant: "natif")]
     #if targetEnvironment(macCatalyst)
     static let macLocal: ReachFive = ReachFive(sdkConfig: sdkLocal, providersCreators: providers, storage: storage)
     static let macRemote: ReachFive = ReachFive(sdkConfig: sdkRemote, providersCreators: providers, storage: storage)
@@ -93,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("addEmailVerificationCallback \(result)")
             NotificationCenter.default.post(name: .DidReceiveEmailVerificationCallback, object: nil, userInfo: ["result": result])
         }
-        
+
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         // Ceci est l'id tel que renvoyé par Apple dans idToken.sub ou AppleIDCredential.user
         appleIDProvider.getCredentialState(forUserID: "000707.3cc381460bce4bcc96e6fd5abdc1f121.1742") { (credentialState, error) in
@@ -175,9 +176,11 @@ extension UIViewController {
     func goToProfile(_ authToken: AuthToken) {
         AppDelegate.storage.setToken(authToken)
 
-        if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "Tabs") as? UITabBarController {
-            tabBarController.selectedIndex = 2 // profile is third from left
-            navigationController?.pushViewController(tabBarController, animated: true)
+        Task { @MainActor in
+            if let tabBarController = storyboard?.instantiateViewController(withIdentifier: "Tabs") as? UITabBarController {
+                tabBarController.selectedIndex = 2 // profile is third from left
+                navigationController?.pushViewController(tabBarController, animated: true)
+            }
         }
     }
 
@@ -209,7 +212,7 @@ extension UIViewController {
 
     private func createSelectMfaAuthTypeAction(type: MfaCredentialItemType, stepUpToken: String) -> UIAlertAction {
         return UIAlertAction(title: type.rawValue, style: .default) { _ in
-            AppDelegate().reachfive.mfaStart(stepUp: .LoginFlow(authType: type, stepUpToken: stepUpToken)).onSuccess { resp in
+            AppDelegate.reachfive().mfaStart(stepUp: .LoginFlow(authType: type, stepUpToken: stepUpToken)).onSuccess { resp in
                 self.handleStartVerificationCode(resp, authType: type)
                     .onSuccess { authToken in
                         self.goToProfile(authToken)

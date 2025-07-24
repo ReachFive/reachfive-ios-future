@@ -15,12 +15,12 @@ jobs:
           name: Install CocoaPods
           command: gem install cocoapods --user-install
       - run:
-          name: Check Reach5
+          name: Check Reach5Future
           command: |
             cd Sources
             pod install
             cd ../
-            pod lib lint Reach5.podspec
+            pod lib lint Reach5Future.podspec
   build-for-release:
     macos:
       xcode: "15.3.0"
@@ -30,12 +30,12 @@ jobs:
           name: Install CocoaPods
           command: gem install cocoapods --user-install
       - run:
-          name: Check Reach5
+          name: Check Reach5Future
           command: |
             cd Sources
             pod install
             cd ../
-            pod spec lint Reach5.podspec
+            pod spec lint Reach5Future.podspec
   publish:
     macos:
       xcode: "15.3.0"
@@ -44,7 +44,7 @@ jobs:
       - run:
           name: Install CocoaPods
           command: gem install cocoapods --user-install
-      - run: pod trunk push Reach5.podspec
+      - run: pod trunk push Reach5Future.podspec
   build-sandbox:
     macos:
       xcode: "15.3.0"

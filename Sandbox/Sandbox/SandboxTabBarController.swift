@@ -47,11 +47,15 @@ class SandboxTabBarController: UITabBarController {
         super.viewDidLoad()
         
         clearTokenObserver = NotificationCenter.default.addObserver(forName: .DidClearAuthToken, object: nil, queue: nil) { _ in
-            self.didLogout()
+            Task { @MainActor in
+                self.didLogout()
+            }
         }
         
         setTokenObserver = NotificationCenter.default.addObserver(forName: .DidSetAuthToken, object: nil, queue: nil) { _ in
-            self.didLogin()
+            Task { @MainActor in
+                self.didLogin()
+            }
         }
         
         if #unavailable(iOS 16.0) {

@@ -4,26 +4,22 @@
 import PackageDescription
 
 let package = Package(
-    name: "Reach5",
+    name: "Reach5Future",
     platforms: [.iOS(.v13)],
     products: [
-        .library(name: "Reach5", targets: ["Reach5"]),
+        .library(name: "Reach5Future", targets: ["Reach5Future"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.9.1")),
-        .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMajor(from: "1.8.2")),
-        .package(url: "https://github.com/devicekit/DeviceKit.git", .upToNextMajor(from: "5.1.0")),
+        .package(url: "https://github.com/ReachFive/reachfive-ios", .upToNextMajor(from: "8.2.0")),
         .package(url: "https://github.com/Thomvis/BrightFutures.git", .upToNextMajor(from: "8.2.0")),
     ],
     targets: [
         .target(
-            name: "Reach5",
+            name: "Reach5Future",
             dependencies: [
-                .product(name: "Alamofire", package: "Alamofire"),
-                .product(name: "CryptoSwift", package: "CryptoSwift"),
-                .product(name: "DeviceKit", package: "DeviceKit"),
+                .product(name: "Reach5", package: "Reach5"),
                 .product(name: "BrightFutures", package: "BrightFutures"),
-            ],
+           ],
             resources: [.copy("Core/PrivacyInfo.xcprivacy")]
         )
     ]
