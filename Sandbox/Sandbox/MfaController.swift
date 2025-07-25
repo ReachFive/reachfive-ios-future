@@ -169,7 +169,7 @@ class MfaAction {
     func mfaStart(stepUp startStepUp: StartStepUp, authToken: AuthToken) -> Future<AuthToken, ReachFiveError> {
         return AppDelegate.reachfive()
             .mfaStart(stepUp: startStepUp)
-            .recoverWith { error -> Future<ContinueStepUp, ReachFiveError> in
+            .recoverWith { error in
                 guard case let .AuthFailure(reason: _, apiError: apiError) = error,
                       let key = apiError?.errorMessageKey,
                       key == "error.accessToken.freshness"
@@ -178,7 +178,7 @@ class MfaAction {
                 }
 
                 return AppDelegate.reachfive()
-                    .refreshAccessToken(authToken: authToken).flatMap { (freshToken: AuthToken) -> Future<ContinueStepUp, ReachFiveError> in
+                    .refreshAccessToken(authToken: authToken).flatMap { freshToken in
                         AppDelegate.storage.setToken(freshToken)
                         return AppDelegate.reachfive().mfaStart(stepUp: startStepUp)
                     }
