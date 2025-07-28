@@ -10,17 +10,18 @@ let package = Package(
         .library(name: "Reach5Future", targets: ["Reach5Future"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ReachFive/reachfive-ios", .upToNextMajor(from: "8.2.0")),
+        .package(url: "https://github.com/ReachFive/reachfive-ios", .upToNextMajor(from: "9.0.0")),
         .package(url: "https://github.com/Thomvis/BrightFutures.git", .upToNextMajor(from: "8.2.0")),
     ],
     targets: [
         .target(
             name: "Reach5Future",
             dependencies: [
-                .product(name: "Reach5", package: "Reach5"),
+                .product(name: "Reach5", package: "reachfive-ios"),
                 .product(name: "BrightFutures", package: "BrightFutures"),
            ],
-            resources: [.copy("Core/PrivacyInfo.xcprivacy")]
+            path: "Sources/Core",
+            resources: [.copy("PrivacyInfo.xcprivacy")]
         )
     ]
 )

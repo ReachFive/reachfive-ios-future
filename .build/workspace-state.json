@@ -7,23 +7,6 @@
       {
         "basedOn" : null,
         "packageRef" : {
-          "identity" : "alamofire",
-          "kind" : "remoteSourceControl",
-          "location" : "https://github.com/Alamofire/Alamofire.git",
-          "name" : "Alamofire"
-        },
-        "state" : {
-          "checkoutState" : {
-            "revision" : "513364f870f6bfc468f9d2ff0a95caccc10044c5",
-            "version" : "5.10.2"
-          },
-          "name" : "sourceControlCheckout"
-        },
-        "subpath" : "Alamofire"
-      },
-      {
-        "basedOn" : null,
-        "packageRef" : {
           "identity" : "brightfutures",
           "kind" : "remoteSourceControl",
           "location" : "https://github.com/Thomvis/BrightFutures.git",
@@ -41,36 +24,19 @@
       {
         "basedOn" : null,
         "packageRef" : {
-          "identity" : "cryptoswift",
+          "identity" : "reachfive-ios",
           "kind" : "remoteSourceControl",
-          "location" : "https://github.com/krzyzanowskim/CryptoSwift.git",
-          "name" : "CryptoSwift"
+          "location" : "https://github.com/ReachFive/reachfive-ios",
+          "name" : "Reach5"
         },
         "state" : {
           "checkoutState" : {
-            "revision" : "729e01bc9b9dab466ac85f21fb9ee2bc1c61b258",
-            "version" : "1.8.4"
+            "revision" : "f80bbd5dbed9ceb05fc5880051ed4fa81f60a76f",
+            "version" : "9.0.0"
           },
           "name" : "sourceControlCheckout"
         },
-        "subpath" : "CryptoSwift"
-      },
-      {
-        "basedOn" : null,
-        "packageRef" : {
-          "identity" : "devicekit",
-          "kind" : "remoteSourceControl",
-          "location" : "https://github.com/devicekit/DeviceKit.git",
-          "name" : "DeviceKit"
-        },
-        "state" : {
-          "checkoutState" : {
-            "revision" : "513b9d7e7a1bd46504a1009bbab943b75ce2f195",
-            "version" : "5.6.0"
-          },
-          "name" : "sourceControlCheckout"
-        },
-        "subpath" : "DeviceKit"
+        "subpath" : "reachfive-ios"
       }
     ],
     "prebuilts" : [
