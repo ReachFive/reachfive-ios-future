@@ -2,7 +2,6 @@ import UIKit
 import WebKit
 import SafariServices
 import Reach5
-import Alamofire
 
 class LoginCustomWebviewController: UIViewController {
     
