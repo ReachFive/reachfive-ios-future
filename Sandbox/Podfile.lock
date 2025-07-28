@@ -1,7 +1,7 @@
 PODS:
   - BrightFutures (8.2.0)
   - Reach5 (9.0.0)
-  - Reach5Future (1.0.0):
+  - Reach5Future (9.0.0):
     - BrightFutures (~> 8.2.0)
     - Reach5 (~> 9.0.0)
 
@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   BrightFutures: 67e0e8cd974ab9f6c04650cc64153f7adf1ec489
   Reach5: 190b22889b32a4382bf896a366dad4243b541560
-  Reach5Future: 2043b838df7e657e2a7025f8aa88de3dc17b9718
+  Reach5Future: 1ad5dbf04c0e8fe2ae3c56644d100da6e567f061
 
 PODFILE CHECKSUM: b3bca4ee445e8c95b779f384512f812ea8980dfa
 
