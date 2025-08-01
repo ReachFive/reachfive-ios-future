@@ -6,24 +6,23 @@ PODS:
     - Reach5 (~> 9.0.0)
 
 DEPENDENCIES:
-  - Reach5 (from `../../reachfive-ios/Reach5.podspec`)
+  - Reach5 (~> 9.0.0)
   - Reach5Future (from `../`)
 
 SPEC REPOS:
   trunk:
     - BrightFutures
+    - Reach5
 
 EXTERNAL SOURCES:
-  Reach5:
-    :path: "../../reachfive-ios/Reach5.podspec"
   Reach5Future:
     :path: "../"
 
 SPEC CHECKSUMS:
   BrightFutures: 67e0e8cd974ab9f6c04650cc64153f7adf1ec489
-  Reach5: 190b22889b32a4382bf896a366dad4243b541560
-  Reach5Future: 1ad5dbf04c0e8fe2ae3c56644d100da6e567f061
+  Reach5: 61b46819572b7bc89feedc623cd7d0d46604383d
+  Reach5Future: 1e491e10c9707a9699806e2e30b100b904a1bf1a
 
-PODFILE CHECKSUM: b23d41087af7de979b92e7ce4805fd9ea95dfbdf
+PODFILE CHECKSUM: 4eff4e022fd1ea5920ee858fca0d13bbfa392d05
 
 COCOAPODS: 1.16.2
