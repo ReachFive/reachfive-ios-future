@@ -20,11 +20,6 @@ Pod::Spec.new do |spec|
     'Reach5Future' => ['Sources/Core/PrivacyInfo.xcprivacy']
   }
 
-  spec.prepare_command = <<-CMD
-    VERSION=$(ruby -r ./version.rb -e 'puts $VERSION')
-    /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $VERSION" Sources/Core/Info.plist
-  CMD
-
   spec.dependency 'BrightFutures', '~> 8.2.0'
   spec.dependency 'Reach5', '~> 9.0.0'
 end
