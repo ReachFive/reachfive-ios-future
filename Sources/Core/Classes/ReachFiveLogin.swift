@@ -2,16 +2,9 @@ import BrightFutures
 import Reach5
 
 public extension ReachFive {
-
-    func logout() -> Future<(), ReachFiveError> {
+    func logout(webSessionLogout request: WebSessionLogoutRequest? = nil, revoke token: AuthToken? = nil) -> Future<Void, ReachFiveError> {
         bridge {
-            try await self.logout()
-        }
-    }
-
-    func refreshAccessToken(authToken: AuthToken) -> Future<AuthToken, ReachFiveError> {
-        bridge {
-            try await self.refreshAccessToken(authToken: authToken)
+            try await self.logout(webSessionLogout: request, revoke: token)
         }
     }
 
