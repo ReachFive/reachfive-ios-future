@@ -2,7 +2,7 @@ import BrightFutures
 import Reach5
 
 public extension ReachFive {
-    func signup(profile: ProfileSignupRequest, redirectUrl: String? = nil, scope: [String]? = nil, origin: String? = nil) -> Future<AuthToken, ReachFiveError> {
+    func signup(profile: ProfileSignupRequest, redirectUrl: String? = nil, scope: [String]? = nil, origin: String? = nil) -> Future<SignupFlow, ReachFiveError> {
         bridge {
             try await self.signup(profile: profile, redirectUrl: redirectUrl, scope: scope, origin: origin)
         }
