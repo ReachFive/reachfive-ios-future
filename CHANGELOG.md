@@ -12,9 +12,6 @@
 - allow to trust device during mfa credential registering
 - support action parameter for step up and mfa credential registering
 
-### Bug Fix 
-- Achieve step up in login webview by clicking on link received by email
-
 ## v9.1.0
 - Update for Reach5 9.1.0 with new logout options
 
