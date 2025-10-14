@@ -84,10 +84,11 @@ public extension ReachFive {
     func requestPasswordReset(
         email: String? = nil,
         phoneNumber: String? = nil,
-        redirectUrl: String? = nil
+        redirectUrl: String? = nil,
+        origin: String? = nil
     ) -> Future<(), ReachFiveError> {
         bridge {
-            try await self.requestPasswordReset(email: email, phoneNumber: phoneNumber, redirectUrl: redirectUrl)
+            try await self.requestPasswordReset(email: email, phoneNumber: phoneNumber, redirectUrl: redirectUrl, origin: origin)
         }
     }
 
