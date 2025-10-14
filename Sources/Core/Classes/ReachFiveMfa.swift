@@ -19,15 +19,15 @@ public extension ContinueRegistration {
 }
 
 public extension ReachFive {
-    func mfaStart(registering credential: Credential, authToken: AuthToken, action: String? = nil) -> Future<MfaStartRegistrationResponse, ReachFiveError> {
+    func mfaStart(registering credential: Credential, authToken: AuthToken, action: String? = nil, trustDevice: Bool = false) -> Future<MfaStartRegistrationResponse, ReachFiveError> {
         bridge {
-            try await self.mfaStart(registering: credential, authToken: authToken)
+            try await self.mfaStart(registering: credential, authToken: authToken, trustDevice: trustDevice)
         }
     }
 
-    func mfaVerify(_ credentialType: CredentialType, code: String, authToken: AuthToken) -> Future<MfaCredentialItem, ReachFiveError> {
+    func mfaVerify(_ credentialType: CredentialType, code: String, authToken: AuthToken, trustDevice: Bool = false) -> Future<MfaCredentialItem, ReachFiveError> {
         bridge {
-            try await self.mfaVerify(credentialType, code: code, authToken: authToken)
+            try await self.mfaVerify(credentialType, code: code, authToken: authToken, trustDevice: trustDevice)
         }
     }
 

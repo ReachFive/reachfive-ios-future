@@ -3,6 +3,18 @@
 
 ## Unreleased
 
+## v10.0.0
+### Breaking changes
+- Support new option to prevent login with unverified identifier after a signup. Method signup returns a `SignupFlow` that can be an `AchievedLogin(authToken: AuthToken)` or an `AwaitingIdentifierVerification`
+
+### New Features
+- support parameter origin to requestPasswordReset
+- allow to trust device during mfa credential registering
+- support action parameter for step up and mfa credential registering
+
+### Bug Fix 
+- Achieve step up in login webview by clicking on link received by email
+
 ## v9.1.0
 - Update for Reach5 9.1.0 with new logout options
 
