@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "Reach5Future", targets: ["Reach5Future"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ReachFive/reachfive-ios", .upToNextMajor(from: "9.0.0")),
+        .package(url: "https://github.com/ReachFive/reachfive-ios", "9.0.0"..<"100.0.0"),
         .package(url: "https://github.com/Thomvis/BrightFutures.git", .upToNextMajor(from: "8.2.0")),
     ],
     targets: [
