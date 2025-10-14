@@ -25,7 +25,15 @@ class SignupController: UIViewController {
             name: name
         )
         AppDelegate.reachfive().signup(profile: profile, origin: origin)
-            .onSuccess(callback: goToProfile)
+            .onSuccess(callback: { res in
+                switch res {
+                case let .AchievedLogin(authToken):
+                    return self.goToProfile(authToken)
+                case .AwaitingIdentifierVerification:
+                    self.present(AppDelegate.createAlert(title: "Signup", message: "Login is not possible if your identifiers are not verified"), animated: true)
+                    return
+                }
+            })
             .onFailure { error in
                 let alert = AppDelegate.createAlert(title: "Signup", message: "Error: \(error.message())")
                 self.present(alert, animated: true)
