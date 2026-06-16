@@ -3,6 +3,9 @@
 
 ## Unreleased
 
+## v10.0.1
+- Fix missing import
+
 ## v10.0.0
 ### Breaking changes
 - Support new option to prevent login with unverified identifier after a signup. Method signup returns a `SignupFlow` that can be an `AchievedLogin(authToken: AuthToken)` or an `AwaitingIdentifierVerification`

@@ -1,5 +1,6 @@
 import BrightFutures
 import Reach5
+import UIKit
 
 public extension Provider {
     func login(scope: [String]?, origin: String, viewController: UIViewController?) -> Future<AuthToken, ReachFiveError> {
