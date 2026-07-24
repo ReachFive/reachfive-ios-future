@@ -3,21 +3,13 @@
 </p>
 
 [![CircleCI](https://circleci.com/gh/ReachFive/reachfive-ios-future/tree/master.svg?style=svg)](https://circleci.com/gh/ReachFive/reachfive-ios-future/tree/master)
-[![Download](https://img.shields.io/cocoapods/v/Reach5Future.svg?style=flat) ](https://cocoapods.org/pods/Reach5Future)
+[![Download](https://img.shields.io/github/v/tag/ReachFive/reachfive-ios-future?style=flat)](https://github.com/ReachFive/reachfive-ios-future/releases)
 
 # Reachfive Future bridge
 
 This is not a standalone SDK. This is an extension for Reach5, see https://github.com/ReachFive/reachfive-ios
 
 ## Installation
-
-### Cocoapods
-
-Add the following line to your **Podfile**:
-
-```
-pod 'Reach5Future'
-```
 
 ### Swift Package Manager
 Open the following menu item in Xcode:
