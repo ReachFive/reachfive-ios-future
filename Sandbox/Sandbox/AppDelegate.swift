@@ -12,9 +12,7 @@ import UIKit
 // Facebook itself provided a fix on the latest version apparently
 // WeChat appears to just not be able to run on Catalyst at all
 #else
-// Peut-être qu'un jour je serai capable de modifier les dépendance cocoapods par plateforme
-// https://betterprogramming.pub/why-dont-my-pods-compile-with-mac-catalyst-and-how-can-i-solve-it-ffc3fbec824e
-// Ce lien suggère une solution mais je ne vois pas les même choses dans Build Phases, je ne vois pas les dépendances Facebook et WeChat
+// Maybe one day the WeChat dependency will be declared per platform
 // import Reach5WeChat
 #endif
 
