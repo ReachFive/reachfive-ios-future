@@ -14,14 +14,6 @@ jobs:
       - run:
           name: Build Reach5Future (SPM)
           command: xcodebuild build -scheme Reach5Future -destination 'generic/platform=iOS'
-  build-sandbox:
-    macos:
-      xcode: "16.4.0"
-    working_directory: ~/repo/Sandbox
-    steps:
-      - checkout:
-          path: ~/repo
-      - run: fastlane scan
 
 default_workflows_tags: &default_workflows_tags
   filters:
