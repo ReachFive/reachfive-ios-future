@@ -3,7 +3,6 @@
 #
 # For XCode build version available
 # https://circleci.com/docs/using-macos/
-#
 version: 2.1
 jobs:
   build:
