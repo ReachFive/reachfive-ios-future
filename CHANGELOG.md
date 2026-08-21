@@ -1,7 +1,17 @@
 # Changelog
 
 
-## Unreleased
+## v11.0.0
+
+### Breaking changes
+- Changed type of redirect URL fields to URL instead of String
+- `Provider.login` takes a `Presentation` instead of a `UIViewController?` to handle the different type of implicit conformance.
+- CocoaPods support is dropped, the SDK is distributed exclusively with Swift Package Manager.
+  If you were integrating with CocoaPods, note that the pod re-exported `UIKit` and `Foundation` through its generated umbrella header, so `import Reach5` brought them into scope implicitly. It no longer does: add the explicit `import UIKit` / `import Foundation` your files need.
+
+### New Features
+- Support session devices: `listSessionDevices(authToken:)` and `deleteSessionDevice(id:authToken:)`
+- New method `login(withProvider:…)`, intended for integrators writing their own `Provider`: exchanges the ID token issued by a native provider SDK for a ReachFive `AuthToken`.
 
 ## v10.0.1
 - Fix missing import
