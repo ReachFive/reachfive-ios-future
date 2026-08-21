@@ -1,5 +1,5 @@
 {
-  "originHash" : "0bdd184a4a82103d87166c61c30374d96f162dedf204c7794cbc66c3731f7c26",
+  "originHash" : "2ef014ee4777e8795415d1cbed0dd35512df50f908c46679046db33b5d6c09d2",
   "pins" : [
     {
       "identity" : "brightfutures",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ReachFive/reachfive-ios",
       "state" : {
-        "revision" : "748b669776abf26be648f9223c88b3ac64d2d0cf",
-        "version" : "10.0.1"
+        "revision" : "6a328035e939101329786757af2f2130f80a8cb1",
+        "version" : "11.0.0"
       }
     }
   ],

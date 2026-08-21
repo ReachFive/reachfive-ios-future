@@ -1,4 +1,5 @@
 import BrightFutures
+import Foundation
 import Reach5
 
 public extension ContinueEmailVerification {
@@ -16,7 +17,7 @@ public extension ReachFive {
         }
     }
 
-    func sendEmailVerification(authToken: AuthToken, redirectUrl: String? = nil) -> Future<EmailVerificationResponse, ReachFiveError>{
+    func sendEmailVerification(authToken: AuthToken, redirectUrl: URL? = nil) -> Future<EmailVerificationResponse, ReachFiveError>{
         bridge {
             try await self.sendEmailVerification(authToken: authToken, redirectUrl: redirectUrl)
         }
@@ -41,7 +42,7 @@ public extension ReachFive {
     func updateEmail(
         authToken: AuthToken,
         email: String,
-        redirectUrl: String? = nil
+        redirectUrl: URL? = nil
     ) -> Future<Profile, ReachFiveError> {
         bridge {
             try await self.updateEmail(authToken: authToken, email: email, redirectUrl: redirectUrl)
@@ -84,7 +85,7 @@ public extension ReachFive {
     func requestPasswordReset(
         email: String? = nil,
         phoneNumber: String? = nil,
-        redirectUrl: String? = nil,
+        redirectUrl: URL? = nil,
         origin: String? = nil
     ) -> Future<(), ReachFiveError> {
         bridge {
@@ -95,7 +96,7 @@ public extension ReachFive {
     func requestAccountRecovery(
         email: String? = nil,
         phoneNumber: String? = nil,
-        redirectUrl: String? = nil,
+        redirectUrl: URL? = nil,
         origin: String? = nil
     ) -> Future<(), ReachFiveError> {
         bridge {

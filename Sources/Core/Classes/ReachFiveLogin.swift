@@ -1,4 +1,5 @@
 import BrightFutures
+import Foundation
 import Reach5
 
 public extension ReachFive {
@@ -14,9 +15,35 @@ public extension ReachFive {
         }
     }
 
-    func authWithCode(code: String, pkce: Pkce) -> Future<AuthToken, ReachFiveError> {
+    func login(
+        withProvider provider: String,
+        idToken: String,
+        nonce: Pkce,
+        scope: [String]? = nil,
+        origin: String? = nil,
+        givenName: String? = nil,
+        familyName: String? = nil
+    ) -> Future<AuthToken, ReachFiveError> {
         bridge {
-            try await self.authWithCode(code: code, pkce: pkce)
+            try await self.login(
+                withProvider: provider,
+                idToken: idToken,
+                nonce: nonce,
+                scope: scope,
+                origin: origin,
+                givenName: givenName,
+                familyName: familyName
+            )
+        }
+    }
+
+    func authWithCode(code: String, pkce: Pkce, redirectUri: URL? = nil) -> Future<AuthToken, ReachFiveError> {
+        bridge {
+            try await self.authWithCode(
+                code: code,
+                pkce: pkce,
+                redirectUri: redirectUri
+            )
         }
     }
 }
