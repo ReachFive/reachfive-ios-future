@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+## v11.1.0
+
+### New features
+- Captcha support on every endpoint this SDK calls that the server can protect: `loginWithPassword`, `signup(profile:)`, `requestPasswordReset`, `requestAccountRecovery`, `startPasswordless`, `updateEmail` and `login(withRequest:usingModalAuthorizationFor:display:)` take a new optional `captcha: Captcha?`, a token and its `CaptchaProvider` (`.reCaptcha`, `.captchaFox`, or any name the server gains later). On the modal sign-in it only applies if a saved password is selected.
 
 ## v11.0.0
 

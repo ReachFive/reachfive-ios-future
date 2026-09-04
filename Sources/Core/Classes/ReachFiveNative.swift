@@ -30,9 +30,9 @@ public extension ReachFive {
     ///   - requestTypes: choose between Password and/or Passkey
     ///   - mode: choose the behavior when there are no credentials available
     /// - Returns: an AuthToken when the user was successfully logged in, ReachFiveError.AuthCanceled when the user cancelled the modal sheet or when there was no credentials available, or other kinds of ReachFiveError
-    func login(withRequest request: NativeLoginRequest, usingModalAuthorizationFor requestTypes: [ModalAuthorization], display mode: Mode) -> Future<LoginFlow, ReachFiveError> {
+    func login(withRequest request: NativeLoginRequest, usingModalAuthorizationFor requestTypes: [ModalAuthorization], display mode: Mode, captcha: Captcha? = nil) -> Future<LoginFlow, ReachFiveError> {
         bridge {
-            try await self.login(withRequest: request, usingModalAuthorizationFor: requestTypes, display: mode)
+            try await self.login(withRequest: request, usingModalAuthorizationFor: requestTypes, display: mode, captcha: captcha)
         }
     }
 

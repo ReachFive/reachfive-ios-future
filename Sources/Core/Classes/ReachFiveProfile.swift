@@ -42,10 +42,11 @@ public extension ReachFive {
     func updateEmail(
         authToken: AuthToken,
         email: String,
-        redirectUrl: URL? = nil
+        redirectUrl: URL? = nil,
+        captcha: Captcha? = nil
     ) -> Future<Profile, ReachFiveError> {
         bridge {
-            try await self.updateEmail(authToken: authToken, email: email, redirectUrl: redirectUrl)
+            try await self.updateEmail(authToken: authToken, email: email, redirectUrl: redirectUrl, captcha: captcha)
         }
     }
 
@@ -86,10 +87,11 @@ public extension ReachFive {
         email: String? = nil,
         phoneNumber: String? = nil,
         redirectUrl: URL? = nil,
-        origin: String? = nil
+        origin: String? = nil,
+        captcha: Captcha? = nil
     ) -> Future<(), ReachFiveError> {
         bridge {
-            try await self.requestPasswordReset(email: email, phoneNumber: phoneNumber, redirectUrl: redirectUrl, origin: origin)
+            try await self.requestPasswordReset(email: email, phoneNumber: phoneNumber, redirectUrl: redirectUrl, origin: origin, captcha: captcha)
         }
     }
 
@@ -97,10 +99,11 @@ public extension ReachFive {
         email: String? = nil,
         phoneNumber: String? = nil,
         redirectUrl: URL? = nil,
-        origin: String? = nil
+        origin: String? = nil,
+        captcha: Captcha? = nil
     ) -> Future<(), ReachFiveError> {
         bridge {
-            try await self.requestAccountRecovery(email: email, phoneNumber: phoneNumber, redirectUrl: redirectUrl, origin: origin)
+            try await self.requestAccountRecovery(email: email, phoneNumber: phoneNumber, redirectUrl: redirectUrl, origin: origin, captcha: captcha)
         }
     }
 
