@@ -27,11 +27,20 @@ class PasswordlessController: UIViewController {
     }
     
     @IBAction func loginWithEmail(_ sender: Any) {
+        let redirectUri: URL?
+        do {
+            redirectUri = try typedRedirectUri()
+        } catch {
+            let alert = AppDelegate.createAlert(title: "Login with email", message: "Error: \(error.localizedDescription)")
+            present(alert, animated: true)
+            return
+        }
+        
         AppDelegate.reachfive()
             .startPasswordless(
                 .Email(
                     email: emailInput.text ?? "",
-                    redirectUri: redirectUriInput.text != "" ? redirectUriInput.text : nil,
+                    redirectUri: redirectUri,
                     origin: "PasswordlessController.loginWithEmail"
                 )
             )
@@ -49,11 +58,20 @@ class PasswordlessController: UIViewController {
     }
     
     @IBAction func loginWithPhoneNumber(_ sender: Any) {
+        let redirectUri: URL?
+        do {
+            redirectUri = try typedRedirectUri()
+        } catch {
+            let alert = AppDelegate.createAlert(title: "Login with phone number", message: "Error: \(error.localizedDescription)")
+            present(alert, animated: true)
+            return
+        }
+        
         AppDelegate.reachfive()
             .startPasswordless(
                 .PhoneNumber(
                     phoneNumber: phoneNumberInput.text ?? "",
-                    redirectUri: redirectUriInput.text != "" ? redirectUriInput.text : nil,
+                    redirectUri: redirectUri,
                     origin: "PasswordlessController.loginWithPhoneNumber"
                 )
             )
@@ -68,6 +86,22 @@ class PasswordlessController: UIViewController {
             .onComplete { result in
                 print("startPasswordless phone number \(result)")
             }
+    }
+    
+    /// The redirect URI typed in the field, or `nil` when it is left empty so the SDK falls back to the
+    /// `SdkConfig` default. A non-empty entry that does not parse is reported rather than silently dropped:
+    /// the field exists precisely to try out one given value.
+    private func typedRedirectUri() throws -> URL? {
+        guard let text = redirectUriInput.text, !text.isEmpty else { return nil }
+        guard let uri = URL(string: text) else { throw InvalidRedirectUri(text: text) }
+        return uri
+    }
+    
+    private struct InvalidRedirectUri: LocalizedError {
+        let text: String
+        var errorDescription: String? {
+            "'\(text)' is not a valid URL."
+        }
     }
     
     @IBAction func verifyCode(_ sender: Any) {

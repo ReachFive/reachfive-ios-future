@@ -23,8 +23,7 @@ class LoginPasskeyController: UIViewController {
         super.viewDidAppear(animated)
         print("viewDidAppear")
         
-        guard let window = view.window else { fatalError("The view was not in the app's view hierarchy!") }
-        AppDelegate.reachfive().login(withRequest: NativeLoginRequest(anchor: window, origin: "LoginPasskeyController.viewDidAppear"), usingModalAuthorizationFor: [.Passkey], display: .IfImmediatelyAvailableCredentials)
+        AppDelegate.reachfive().login(withRequest: NativeLoginRequest(presenting: Presentation(from: self), origin: "LoginPasskeyController.viewDidAppear"), usingModalAuthorizationFor: [.Passkey], display: .IfImmediatelyAvailableCredentials)
             .onSuccess(callback: handleLoginFlow)
             .onFailure { error in
                 
@@ -38,7 +37,7 @@ class LoginPasskeyController: UIViewController {
                     #if targetEnvironment(macCatalyst)
                         return
                     #else
-                        AppDelegate.reachfive().beginAutoFillAssistedPasskeyLogin(withRequest: NativeLoginRequest(anchor: window, origin: "LoginPasskeyController.viewDidAppear.AuthCanceled"))
+                        AppDelegate.reachfive().beginAutoFillAssistedPasskeyLogin(withRequest: NativeLoginRequest(presenting: Presentation(from: self), origin: "LoginPasskeyController.viewDidAppear.AuthCanceled"))
                             .onSuccess(callback: self.goToProfile)
                             .onFailure { error in
                                 let alert = AppDelegate.createAlert(title: "Login", message: "Error: \(error.message())")
@@ -53,15 +52,14 @@ class LoginPasskeyController: UIViewController {
     }
     
     @IBAction func nonDiscoverableLogin(_ sender: Any) {
-        guard let window = view.window else { fatalError("The view was not in the app's view hierarchy!") }
-        let request = NativeLoginRequest(anchor: window, origin: "LoginPasskeyController.nonDiscoverableLogin")
+        let request = NativeLoginRequest(presenting: Presentation(from: self), origin: "LoginPasskeyController.nonDiscoverableLogin")
         func onFailure(error: ReachFiveError) -> Void {
             switch error {
             case .AuthCanceled:
                 #if targetEnvironment(macCatalyst)
                     return
                 #else
-                    AppDelegate.reachfive().beginAutoFillAssistedPasskeyLogin(withRequest: NativeLoginRequest(anchor: window, origin: "LoginPasskeyController.nonDiscoverableLogin.AuthCanceled"))
+                    AppDelegate.reachfive().beginAutoFillAssistedPasskeyLogin(withRequest: NativeLoginRequest(presenting: Presentation(from: self), origin: "LoginPasskeyController.nonDiscoverableLogin.AuthCanceled"))
                         .onSuccess(callback: self.goToProfile)
                         .onFailure { error in
                             let alert = AppDelegate.createAlert(title: "Login", message: "Error: \(error.message())")
@@ -107,8 +105,7 @@ class LoginPasskeyController: UIViewController {
             profile = ProfilePasskeySignupRequest(phoneNumber: username)
         }
         
-        let window: UIWindow = view.window!
-        AppDelegate.reachfive().signup(withRequest: PasskeySignupRequest(passkeyProfile: profile, friendlyName: username, anchor: window, origin: "LoginPasskeyController.createAccount"))
+        AppDelegate.reachfive().signup(withRequest: PasskeySignupRequest(passkeyProfile: profile, friendlyName: username, presenting: Presentation(from: self), origin: "LoginPasskeyController.createAccount"))
             .onSuccess(callback: goToProfile)
             .onFailure { error in
                 let alert = AppDelegate.createAlert(title: "Signup", message: "Error: \(error.message())")

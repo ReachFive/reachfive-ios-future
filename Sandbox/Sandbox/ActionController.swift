@@ -7,14 +7,13 @@ class ActionController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        guard let window = view.window else { fatalError("The view was not in the app's view hierarchy!") }
 
         // Section Native
         if indexPath.section == 1 {
             // Sign in with Apple
             if indexPath.row == 1 {
                 AppDelegate.reachfive()
-                    .login(withRequest: NativeLoginRequest(anchor: window, origin: "ActionController: Section Native"), usingModalAuthorizationFor: [.SignInWithApple], display: .Always)
+                    .login(withRequest: NativeLoginRequest(presenting: Presentation(from: self), origin: "ActionController: Section Native"), usingModalAuthorizationFor: [.SignInWithApple], display: .Always)
                     .onSuccess(callback: handleLoginFlow)
                     .onFailure { error in
                         let alert = AppDelegate.createAlert(title: "Login failed", message: "Error: \(error.message())")
@@ -23,7 +22,7 @@ class ActionController: UITableViewController {
             }
         }
 
-        let loginRequest = NativeLoginRequest(anchor: window, origin: "ActionController: Section Passkey")
+        let loginRequest = NativeLoginRequest(presenting: Presentation(from: self), origin: "ActionController: Section Passkey")
 
         // Section Passkey
         if #available(iOS 16.0, *), indexPath.section == 2 {

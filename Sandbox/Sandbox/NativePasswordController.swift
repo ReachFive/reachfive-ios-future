@@ -44,10 +44,8 @@ class NativePasswordController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard let window = view.window else { fatalError("The view was not in the app's view hierarchy!") }
-        
         AppDelegate.reachfive()
-            .login(withRequest: NativeLoginRequest(anchor: window, origin: "NativePasswordController.viewDidAppear"), usingModalAuthorizationFor: [.Password], display: .Always)
+            .login(withRequest: NativeLoginRequest(presenting: Presentation(from: self), origin: "NativePasswordController.viewDidAppear"), usingModalAuthorizationFor: [.Password], display: .Always)
             .onSuccess(callback: handleLoginFlow)
             .onFailure { error in
                 switch error {
