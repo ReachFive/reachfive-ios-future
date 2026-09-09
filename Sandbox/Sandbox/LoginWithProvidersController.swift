@@ -74,7 +74,7 @@ class LoginWithProvidersController: UIViewController, UITableViewDataSource, UIT
             .login(
                 scope: scope,
                 origin: "LoginWithProvidersController.didSelectRowAt",
-                viewController: self
+                presenting: Presentation(from: self)
             )
             .onComplete { result in
                 self.handleResult(result: result)

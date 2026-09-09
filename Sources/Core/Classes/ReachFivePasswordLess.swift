@@ -3,9 +3,9 @@ import Reach5
 
 public extension ReachFive {
 
-    func startPasswordless(_ request: PasswordLessRequest) -> Future<(), ReachFiveError> {
+    func startPasswordless(_ request: PasswordLessRequest, captcha: Captcha? = nil) -> Future<(), ReachFiveError> {
         bridge {
-            try await self.startPasswordless(request)
+            try await self.startPasswordless(request, captcha: captcha)
         }
     }
 

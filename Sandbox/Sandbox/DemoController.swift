@@ -53,7 +53,6 @@ class DemoController: UIViewController {
         print("DemoController.viewDidAppear")
         super.viewDidAppear(animated)
 
-        guard let window = view.window else { fatalError("The view was not in the app's view hierarchy!") }
         var types: [ModalAuthorization] = [.Password, .SignInWithApple]
         if #available(iOS 16.0, *) {
             types.append(.Passkey)
@@ -64,7 +63,7 @@ class DemoController: UIViewController {
         } else {
             mode = .Always
         }
-        AppDelegate.reachfive().login(withRequest: NativeLoginRequest(anchor: window, origin: "DemoController.viewDidAppear"), usingModalAuthorizationFor: types, display: mode)
+        AppDelegate.reachfive().login(withRequest: NativeLoginRequest(presenting: Presentation(from: self), origin: "DemoController.viewDidAppear"), usingModalAuthorizationFor: types, display: mode)
             .onSuccess(callback: handleLoginFlow)
             .onFailure { error in
 
@@ -82,7 +81,7 @@ class DemoController: UIViewController {
                         return
                     #else
                         if #available(iOS 16.0, *) {
-                            AppDelegate.reachfive().beginAutoFillAssistedPasskeyLogin(withRequest: NativeLoginRequest(anchor: window, origin: "DemoController.viewDidAppear.AuthCanceled"))
+                            AppDelegate.reachfive().beginAutoFillAssistedPasskeyLogin(withRequest: NativeLoginRequest(presenting: Presentation(from: self), origin: "DemoController.viewDidAppear.AuthCanceled"))
                                 .onSuccess(callback: self.goToProfile)
                                 .onFailure { error in
                                     print("error: \(error) \(error.message())")
@@ -95,7 +94,6 @@ class DemoController: UIViewController {
     }
 
     @IBAction func createAccount(_ sender: Any) {
-        guard let window = view.window else { fatalError("The view was not in the app's view hierarchy!") }
         guard let username = usernameField.text else { return }
 
         func goToSignup() {
@@ -114,7 +112,7 @@ class DemoController: UIViewController {
                 profile = ProfilePasskeySignupRequest(phoneNumber: username)
             }
 
-            AppDelegate.reachfive().signup(withRequest: PasskeySignupRequest(passkeyProfile: profile, friendlyName: username, anchor: window, origin: "DemoController.createAccount"))
+            AppDelegate.reachfive().signup(withRequest: PasskeySignupRequest(passkeyProfile: profile, friendlyName: username, presenting: Presentation(from: self), origin: "DemoController.createAccount"))
                 .onSuccess(callback: goToProfile)
                 .onFailure { error in
                     switch error {
@@ -135,7 +133,6 @@ class DemoController: UIViewController {
     }
 
     @IBAction func login(_ sender: Any) {
-        guard let window = view.window else { fatalError("The view was not in the app's view hierarchy!") }
         guard let pass = passwordField.text, let username = usernameField.text else { return }
 
         if !pass.isEmpty {
@@ -144,14 +141,14 @@ class DemoController: UIViewController {
         }
 
         if #available(iOS 16.0, *) {
-            let request = NativeLoginRequest(anchor: window, origin: "DemoController.login")
+            let request = NativeLoginRequest(presenting: Presentation(from: self), origin: "DemoController.login")
             func onFailure(error: ReachFiveError) -> Void {
                 switch error {
                 case .AuthCanceled:
                     #if targetEnvironment(macCatalyst)
                         return
                     #else
-                        AppDelegate.reachfive().beginAutoFillAssistedPasskeyLogin(withRequest: NativeLoginRequest(anchor: window, origin: "DemoController.login.AuthCanceled"))
+                        AppDelegate.reachfive().beginAutoFillAssistedPasskeyLogin(withRequest: NativeLoginRequest(presenting: Presentation(from: self), origin: "DemoController.login.AuthCanceled"))
                             .onSuccess(callback: self.goToProfile)
                             .onFailure { error in
                                 print("error: \(error) \(error.message())")
@@ -202,8 +199,7 @@ class DemoController: UIViewController {
 
     @objc func handleAuthorizationAppleIDButtonPress() {
         print("handleAuthorizationAppleIDButtonPress")
-        guard let window = view.window else { fatalError("The view was not in the app's view hierarchy!") }
-        AppDelegate.reachfive().login(withRequest: NativeLoginRequest(anchor: window, origin: "DemoController.handleAuthorizationAppleIDButtonPress"), usingModalAuthorizationFor: [.SignInWithApple], display: .Always)
+        AppDelegate.reachfive().login(withRequest: NativeLoginRequest(presenting: Presentation(from: self), origin: "DemoController.handleAuthorizationAppleIDButtonPress"), usingModalAuthorizationFor: [.SignInWithApple], display: .Always)
             .onSuccess(callback: handleLoginFlow)
             .onFailure { error in
                 switch error {

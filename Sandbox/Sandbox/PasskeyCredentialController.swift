@@ -56,7 +56,6 @@ class PasskeyCredentialController: UIViewController {
     @available(iOS 16.0, *)
     @IBAction func registerNewPasskey(_ sender: Any) {
         print("registerNewPasskey")
-        guard let window = view.window else { fatalError("The view was not in the app's view hierarchy!") }
         guard let authToken = AppDelegate.storage.getToken() else {
             print("not logged in")
             return
@@ -79,7 +78,7 @@ class PasskeyCredentialController: UIViewController {
                 let registerAction = UIAlertAction(title: "Add", style: .default) { [unowned alert] (_) in
                     let textField = alert.textFields?[0]
                     
-                    AppDelegate.reachfive().registerNewPasskey(withRequest: NewPasskeyRequest(anchor: window, friendlyName: textField?.text ?? friendlyName, origin: "ProfileController.registerNewPasskey"), authToken: authToken)
+                    AppDelegate.reachfive().registerNewPasskey(withRequest: NewPasskeyRequest(presenting: Presentation(from: self), friendlyName: textField?.text ?? friendlyName, origin: "ProfileController.registerNewPasskey"), authToken: authToken)
                         .onSuccess { _ in
                             self.reloadCredentials(authToken: authToken)
                         }
