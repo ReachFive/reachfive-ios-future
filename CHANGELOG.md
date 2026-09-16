@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v11.1.1
+
 ### Bug fixes
 - Fix a failure when an unexpected error coming from Reach5 caused a cast error, thus an app crash.
 
