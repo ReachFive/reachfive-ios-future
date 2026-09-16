@@ -3,7 +3,7 @@
 ## Unreleased
 
 ### Bug fixes
-- A request failing on the network — airplane mode, no connection, timeout — no longer crashes the app. The bridge cast the error to `ReachFiveError` with `as!`, and the core SDK let `URLSession`'s `URLError` through, so the cast trapped. The failure now reaches the `Future` as a `ReachFiveError.TechnicalError`, whatever type the core SDK raised.
+- Fix a failure when an unexpected error coming from Reach5 caused a cast error, thus an app crash.
 
 ## v11.1.0
 
