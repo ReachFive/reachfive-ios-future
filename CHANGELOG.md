@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## v11.2.0
+
+### New features
+- `startPasswordless` supports an optional scope parameter.
+- `startPasswordless` supports an optional profile data for signups.
+
 ## v11.1.1
 
 ### Bug fixes
